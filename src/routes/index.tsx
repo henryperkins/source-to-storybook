@@ -17,7 +17,7 @@ export const Route = createFileRoute("/")({
 function Landing() {
   return (
     <div className="relative min-h-screen overflow-hidden pb-40">
-      <img src={rose.url} alt="" aria-hidden className="pointer-events-none absolute -right-24 -top-10 w-[34rem] max-w-none opacity-90 md:right-0 md:w-[46rem]" />
+      <img src={rose.url} alt="" aria-hidden className="fade-bottom pointer-events-none absolute -right-24 -top-10 w-[34rem] max-w-none opacity-90 md:right-0 md:w-[46rem]" />
       <div className="relative mx-auto flex max-w-5xl flex-col gap-10 px-5 pt-6">
         <header className="flex items-center justify-between">
           <Logo />

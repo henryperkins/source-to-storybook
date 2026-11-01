@@ -162,5 +162,8 @@
   .pill-progress { background: color-mix(in oklch, var(--butter) 70%, var(--card)); }
   .dot { width: 0.6rem; height: 0.6rem; border-radius: 9999px; background: currentColor; }
   .btn-outline-ring { background: transparent; color: var(--primary); border: 2px solid var(--primary); box-shadow: 0 0 0 3px var(--background), 0 0 0 4px var(--primary); }
-  .leaf-footer { pointer-events: none; position: fixed; inset: auto 0 0 0; height: 9rem; background-repeat: repeat-x; background-position: bottom center; background-size: auto 100%; opacity: 0.55; z-index: 0; }
+  .leaf-footer { pointer-events: none; position: absolute; inset: auto 0 0 0; height: clamp(5rem, 14vw, 9rem); background-repeat: repeat-x; background-position: bottom center; background-size: auto 100%; opacity: 0.55; z-index: 0; }
+}
+@utility fade-bottom {
+  mask-image: linear-gradient(to bottom, black 60%, transparent);
 }

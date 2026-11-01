@@ -5,6 +5,7 @@ import { useState, type FormEvent } from "react";
 import { profileQuery } from "@/lib/queries";
 import { admitQuestion, COPY, MAX_QUESTION } from "@/lib/reading-rules";
 import { startReading } from "@/lib/readings.functions";
+import { PositionTiles } from "@/components/Brand";
 
 export const Route = createFileRoute("/_authenticated/new")({
   head: () => ({ meta: [{ title: "New reading — Reflection" }, { name: "description", content: "Ask a question and draw Situation, Tension and Possibility." }] }),
@@ -46,12 +47,12 @@ function NewReading() {
   }
 
   return (
-    <section className="mx-auto flex max-w-2xl flex-col gap-6 pt-6">
+    <section className="mx-auto flex max-w-3xl flex-col gap-6 pt-6">
       <div>
         <span className="eyebrow">Reflection, not prediction</span>
         <h1 className="mt-2 text-4xl md:text-5xl">What would you like to think about?</h1>
-        <p className="mt-3 text-muted-foreground">Three positions: <strong>Situation</strong>, <strong>Tension</strong> and <strong>Possibility</strong>.</p>
       </div>
+      <PositionTiles />
       {!profile.ai_enabled && (
         <div className="panel flex flex-col gap-3 p-5" role="status">
           <h2 className="text-lg">AI readings are off</h2>
@@ -70,8 +71,19 @@ function NewReading() {
           <span>{question.length}/{MAX_QUESTION}</span>
         </div>
         <p className="text-xs text-muted-foreground">{COPY.startProcessing} {COPY.providerRetention}</p>
-        <button className="btn" disabled={busy || !profile.ai_enabled || !question.trim()}>{busy ? "Working…" : "Start reading"}</button>
-        {busy && <p role="status" aria-live="polite" className="text-sm text-primary">{STAGES[stage]}… this can take up to a minute.</p>}
+        <button className="btn" disabled={busy || !profile.ai_enabled || !question.trim()}>{busy ? "Drawing…" : "Draw three cards"}</button>
+        {busy && (
+          <div role="status" aria-live="polite" className="flex flex-col gap-2">
+            <div className="flex flex-wrap gap-2">
+              {STAGES.map((s, i) => (
+                <span key={s} className={i < stage ? "pill pill-done" : i === stage ? "pill pill-progress" : "pill"}>
+                  {i < stage ? "✓" : i === stage ? "◌" : "○"} {s}
+                </span>
+              ))}
+            </div>
+            <p className="text-xs text-muted-foreground">This can take up to a minute.</p>
+          </div>
+        )}
         {error && <p role="alert" className="text-sm text-destructive">{error}</p>}
       </form>
     </section>

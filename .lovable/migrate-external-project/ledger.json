@@ -1,0 +1,16 @@
+[
+  {"capability": "code (UI + reading flow)", "source": "src/client, src/domain, src/worker", "outcome": "migrate", "status": "migrated", "next_action": "none"},
+  {"capability": "schema", "source": "src/worker/db/migrations (D1)", "outcome": "migrate", "status": "migrated", "next_action": "Core tables recreated (profiles, readings, reflections); operational ledgers (cost, rekey, recovery, coordination) intentionally not ported"},
+  {"capability": "records", "source": "Cloudflare D1 (encrypted)", "outcome": "migrate", "status": "pending", "next_action": "No record export attached; data was encrypted with app keys under .wrangler/live-development"},
+  {"capability": "auth identities", "source": "passkeys + recovery kit", "outcome": "migrate", "status": "pending", "next_action": "Replaced with Lovable email/password + Google. Source accounts had no emails, so existing users cannot be matched automatically"},
+  {"capability": "authorization", "source": "owner-scoped server checks", "outcome": "migrate", "status": "migrated", "next_action": "Owner-only row policies"},
+  {"capability": "AI provider (OpenAI Responses, gpt-6.1-terra)", "source": "src/worker/provider", "outcome": "preserve", "status": "pending", "next_action": "OPENAI_API_KEY secret required for live verification"},
+  {"capability": "quotas (3/day, 30/month)", "source": "quota_buckets", "outcome": "migrate", "status": "migrated", "next_action": "none"},
+  {"capability": "spend ceilings ($10/day, $100/month)", "source": "spend_buckets", "outcome": "migrate", "status": "dropped", "next_action": "Not ported; rely on OpenAI project budget limits"},
+  {"capability": "spread photo recognition", "source": "provider/meta-vision.ts", "outcome": "migrate", "status": "pending", "next_action": "Not ported in this pass"},
+  {"capability": "export + deletion", "source": "readings/export.ts, erasure.ts", "outcome": "migrate", "status": "migrated", "next_action": "none"},
+  {"capability": "24h expiry of unsaved readings", "source": "maintenance cron", "outcome": "migrate", "status": "migrated", "next_action": "Expiry enforced at read time"},
+  {"capability": "schedules", "source": "wrangler minute cron", "outcome": "replace", "status": "migrated", "next_action": "No recurring job needed"},
+  {"capability": "secrets", "source": "OPENAI_API_KEY, OPENAI_PROJECT_ID", "outcome": "preserve", "status": "pending", "next_action": "Request OPENAI_API_KEY via secure form"},
+  {"capability": "verification", "source": "-", "outcome": "verify", "status": "pending", "next_action": "Live reading after key is added"}
+]

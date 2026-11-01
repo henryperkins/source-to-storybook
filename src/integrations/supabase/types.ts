@@ -14,7 +14,113 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      profiles: {
+        Row: {
+          ai_enabled: boolean
+          ai_enabled_at: string | null
+          created_at: string
+          id: string
+          updated_at: string
+        }
+        Insert: {
+          ai_enabled?: boolean
+          ai_enabled_at?: string | null
+          created_at?: string
+          id: string
+          updated_at?: string
+        }
+        Update: {
+          ai_enabled?: boolean
+          ai_enabled_at?: string | null
+          created_at?: string
+          id?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      readings: {
+        Row: {
+          cards: Json
+          created_at: string
+          expires_at: string
+          id: string
+          interpretation: Json
+          provider_model: string | null
+          question: string
+          reversals: boolean
+          saved: boolean
+          saved_at: string | null
+          user_id: string
+        }
+        Insert: {
+          cards: Json
+          created_at?: string
+          expires_at?: string
+          id?: string
+          interpretation: Json
+          provider_model?: string | null
+          question: string
+          reversals?: boolean
+          saved?: boolean
+          saved_at?: string | null
+          user_id: string
+        }
+        Update: {
+          cards?: Json
+          created_at?: string
+          expires_at?: string
+          id?: string
+          interpretation?: Json
+          provider_model?: string | null
+          question?: string
+          reversals?: boolean
+          saved?: boolean
+          saved_at?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      reflections: {
+        Row: {
+          body: string
+          created_at: string
+          id: string
+          reading_id: string
+          revision: number
+          stance: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          body?: string
+          created_at?: string
+          id?: string
+          reading_id: string
+          revision?: number
+          stance?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          body?: string
+          created_at?: string
+          id?: string
+          reading_id?: string
+          revision?: number
+          stance?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "reflections_reading_id_fkey"
+            columns: ["reading_id"]
+            isOneToOne: true
+            referencedRelation: "readings"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never

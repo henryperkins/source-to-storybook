@@ -128,7 +128,7 @@ export const startReading = createServerFn({ method: "POST" })
           model: MODEL,
           store: false,
           reasoning: { effort: "xhigh" },
-          service_tier: "priority",
+          service_tier: "fast",
           max_output_tokens: 8192,
           input: [
             { role: "system", content: SYSTEM },

@@ -3,6 +3,8 @@ import { useQueryClient, useSuspenseQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { CardFace } from "@/components/CardFace";
+import { StanceChip } from "@/components/Brand";
+import leaves from "@/assets/leaves.png.asset.json";
 import { formatDate, readingQuery } from "@/lib/queries";
 import { cardName, COPY, positionLabel } from "@/lib/reading-rules";
 
@@ -65,7 +67,8 @@ function ReadingPage() {
   const it = r.interpretation;
   return (
     <article className="flex flex-col gap-10 pt-6">
-      <header className="flex flex-col gap-3">
+      <header className="relative flex flex-col gap-3">
+        <img src={leaves.url} alt="" aria-hidden className="pointer-events-none absolute -top-4 right-0 hidden w-40 md:block" />
         <span className="eyebrow">{formatDate(r.created_at)} · {r.saved ? "Saved" : "Not saved"}</span>
         <h1 className="text-4xl md:text-5xl">{r.question}</h1>
         <div className="mt-2 flex flex-wrap items-center gap-3">
@@ -142,9 +145,9 @@ function ReadingPage() {
         ) : r.reflection ? (
           <>
             <p className="whitespace-pre-wrap font-serif text-lg">{r.reflection.body || <em className="text-muted-foreground">No text</em>}</p>
-            <p className="text-xs text-muted-foreground">
-              {stances.find(([v]) => v === r.reflection!.stance)?.[1]} · Updated {formatDate(r.reflection.updated_at)}
-            </p>
+            <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
+              <StanceChip stance={r.reflection.stance} /> Saved {formatDate(r.reflection.updated_at)}
+            </div>
             <button className="btn btn-secondary self-start" onClick={() => setEditing(true)}>Edit reflection</button>
           </>
         ) : (

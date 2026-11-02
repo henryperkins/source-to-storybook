@@ -4,7 +4,7 @@ import { formatDate, savedReadingsQuery } from "@/lib/queries";
 import { cardName } from "@/lib/reading-rules";
 
 export const Route = createFileRoute("/_authenticated/readings/")({
-  head: () => ({ meta: [{ title: "Saved readings — Reflection" }, { name: "description", content: "Your dated saved tarot readings and reflections." }] }),
+  head: () => ({ meta: [{ title: "Saved readings — Reflection" }, { name: "description", content: "Your dated saved tarot readings and reflections." }, { property: "og:title", content: "Saved readings — Reflection" }, { property: "og:description", content: "Your dated saved tarot readings and reflections." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }),
   loader: ({ context }) => context.queryClient.ensureQueryData(savedReadingsQuery()),
   component: History,
 });

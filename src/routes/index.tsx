@@ -7,6 +7,10 @@ export const Route = createFileRoute("/")({
     meta: [
       { title: "Reflection — a little space to reflect" },
       { name: "description", content: "Bring a question. Draw Situation, Tension and Possibility, read a grounded interpretation, and keep your own reflections." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:image", content: rose.url },
+      { name: "twitter:image", content: rose.url },
       { property: "og:title", content: "Reflection — a little space to reflect" },
       { property: "og:description", content: "Bring a question. Make room for another perspective. Reflection, not prediction." },
     ],

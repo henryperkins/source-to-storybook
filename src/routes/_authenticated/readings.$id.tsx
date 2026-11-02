@@ -9,7 +9,7 @@ import { formatDate, readingQuery } from "@/lib/queries";
 import { cardName, COPY, positionLabel } from "@/lib/reading-rules";
 
 export const Route = createFileRoute("/_authenticated/readings/$id")({
-  head: () => ({ meta: [{ title: "Reading — Reflection" }, { name: "description", content: "Your three-card reading with sources and personal reflection." }] }),
+  head: () => ({ meta: [{ title: "Reading — Reflection" }, { name: "description", content: "Your three-card reading with sources and personal reflection." }, { property: "og:title", content: "Reading — Reflection" }, { property: "og:description", content: "Your three-card reading with sources and personal reflection." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }),
   loader: ({ context, params }) => context.queryClient.ensureQueryData(readingQuery(params.id)),
   component: ReadingPage,
 });

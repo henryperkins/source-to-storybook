@@ -8,7 +8,7 @@ import { startReading } from "@/lib/readings.functions";
 import { PositionTiles } from "@/components/Brand";
 
 export const Route = createFileRoute("/_authenticated/new")({
-  head: () => ({ meta: [{ title: "New reading — Reflection" }, { name: "description", content: "Ask a question and draw Situation, Tension and Possibility." }] }),
+  head: () => ({ meta: [{ title: "New reading — Reflection" }, { name: "description", content: "Ask a question and draw Situation, Tension and Possibility." }, { property: "og:title", content: "New reading — Reflection" }, { property: "og:description", content: "Ask a question and draw Situation, Tension and Possibility." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }),
   loader: ({ context }) => context.queryClient.ensureQueryData(profileQuery(context.user.id)),
   component: NewReading,
 });

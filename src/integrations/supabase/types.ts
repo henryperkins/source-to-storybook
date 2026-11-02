@@ -14,6 +14,24 @@ export type Database = {
   }
   public: {
     Tables: {
+      ai_provider_access_state: {
+        Row: {
+          blocked_at: string
+          message: string
+          model: string
+        }
+        Insert: {
+          blocked_at?: string
+          message: string
+          model: string
+        }
+        Update: {
+          blocked_at?: string
+          message?: string
+          model?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           ai_enabled: boolean

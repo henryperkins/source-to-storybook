@@ -1,5 +1,6 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
+import type { JSONSchema7 } from "ai";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import {
   admitQuestion,
@@ -19,7 +20,7 @@ const SYSTEM =
 const DEVELOPER =
   "Use the reader’s exact current question as the throughline. State supplied facts within their stated scope, preserving negation, attribution, hypothetical conditions and timing. Preserve the scope and strength of the reader’s constraints wherever they recur, including synthesis and action. For each position, explain what its selected meaning contributes to this question; do not stop at summarizing the source. Use relevant parts of each meaning rather than forcing every theme into the reading. Follow the supplied position definitions and selected orientation-specific meanings; do not add a reversal framework. Explain how the selected ideas support, qualify or constrain one another in the synthesis. Do not introduce additional card lore, imagery, personal circumstances, symbolic relationships, predictions, diagnoses or medical, legal or financial advice. Keep unsupplied personal circumstances conditional wherever they recur. A source-associated difficulty does not override a reader’s statement that something is working. Use meaning limits to constrain the interpretation you choose. Offer a concrete optional action that follows from the interpretation: specify what to examine and why the result would matter, without treating the action as already chosen. Include at most one reflection question, only when it adds something beyond the explanation. Keep precise card names, counts and timing out of interpretation prose; the application renders the factual layer. Use only the space needed; do not add reassurance or repeat a qualification. Return only the strict schema, without markup or links.";
 
-const OUTPUT_SCHEMA = {
+const OUTPUT_SCHEMA: JSONSchema7 = {
   type: "object",
   additionalProperties: false,
   required: ["units", "synthesis", "action", "reflectionQuestion"],
@@ -42,7 +43,7 @@ const OUTPUT_SCHEMA = {
     action: { type: "string" },
     reflectionQuestion: { type: ["string", "null"] },
   },
-} as const;
+};
 
 const Candidate = z.object({
   units: z

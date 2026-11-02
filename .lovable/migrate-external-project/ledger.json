@@ -39,7 +39,7 @@
     "source": "src/worker/provider",
     "outcome": "replace",
     "status": "migrated",
-    "next_action": "Live gateway verification; signed-in reading requires an account"
+    "next_action": "Real gateway reading verified; signed-in save flow needs an account"
   },
   {
     "capability": "quotas (3/day, 30/month)",
@@ -87,14 +87,14 @@
     "capability": "secrets",
     "source": "LOVABLE_API_KEY",
     "outcome": "replace",
-    "status": "pending",
-    "next_action": "Remove OPENAI_API_KEY after runtime references are removed"
+    "status": "migrated",
+    "next_action": "none; OPENAI_API_KEY deleted"
   },
   {
     "capability": "verification",
     "source": "-",
     "outcome": "verify",
     "status": "pending",
-    "next_action": "Live reading after key is added"
+    "next_action": "Gateway reading verified; account creation required for signed-in save flow"
   }
 ]

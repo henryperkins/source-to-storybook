@@ -8,7 +8,7 @@ import { COPY, DAILY_LIMIT, MONTHLY_LIMIT } from "@/lib/reading-rules";
 import { deleteAccount } from "@/lib/readings.functions";
 
 export const Route = createFileRoute("/_authenticated/account")({
-  head: () => ({ meta: [{ title: "Account — Reflection" }, { name: "description", content: "AI permission, data export and account deletion." }] }),
+  head: () => ({ meta: [{ title: "Account — Reflection" }, { name: "description", content: "AI permission, data export and account deletion." }, { property: "og:title", content: "Account — Reflection" }, { property: "og:description", content: "AI permission, data export and account deletion." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }),
   loader: ({ context }) => context.queryClient.ensureQueryData(profileQuery(context.user.id)),
   component: Account,
 });

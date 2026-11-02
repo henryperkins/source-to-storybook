@@ -6,7 +6,7 @@ import { lovable } from "@/integrations/lovable";
 
 export const Route = createFileRoute("/auth")({
   validateSearch: z.object({ redirect: z.string().optional(), mode: z.enum(["signin", "signup"]).optional() }),
-  head: () => ({ meta: [{ title: "Sign in — Reflection" }, { name: "description", content: "Sign in or create a Reflection account." }] }),
+  head: () => ({ meta: [{ title: "Sign in — Reflection" }, { name: "description", content: "Sign in or create a Reflection account." }, { property: "og:title", content: "Sign in — Reflection" }, { property: "og:description", content: "Sign in or create a Reflection account." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }),
   component: AuthPage,
 });
 

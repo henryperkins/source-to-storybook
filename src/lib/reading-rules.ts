@@ -22,7 +22,7 @@ export const COPY = {
   aiPermission:
     "AI permission is separate from saving. It allows your question to be used for a new reading. Saved readings and reflections are not sent automatically.",
   providerRetention:
-    "Live AI readings send your question, drawn cards and source text to OpenAI with store:false.",
+    "Live readings send your question, drawn cards and source text to Lovable AI. AI usage is charged to workspace credits; requests use store:false.",
 };
 
 const normalized = (t: string) => t.normalize("NFKC").toLowerCase().replace(/[’]/g, "'");

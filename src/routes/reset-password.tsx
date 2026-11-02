@@ -3,7 +3,7 @@ import { useState, type FormEvent } from "react";
 import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/reset-password")({
-  head: () => ({ meta: [{ title: "Choose a new password — Reflection" }, { name: "description", content: "Set a new password for your Reflection account." }] }),
+  head: () => ({ meta: [{ title: "Choose a new password — Reflection" }, { name: "description", content: "Set a new password for your Reflection account." }, { property: "og:title", content: "Choose a new password — Reflection" }, { property: "og:description", content: "Set a new password for your Reflection account." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }),
   component: Reset,
 });
 

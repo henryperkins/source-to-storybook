@@ -69,11 +69,13 @@ export const footer = {
 }
 
 // Rendered as a text child, which React may HTML-escape: keep this CSS free of >, &, and quotes.
-// In dark mode the teal button keeps its fill but switches to ink text for contrast.
+// In dark mode the button switches to a coral fill. The label stays light:
+// some clients (Outlook mobile) strip or invert the fill, and light text
+// remains readable on the dark card either way.
 export const darkModeCss = `
   @media (prefers-color-scheme: dark) {
-    .dm-btn { background-color: ${colors.coral} !important; border-color: ${colors.coral} !important; color: ${colors.ink} !important; }
+    .dm-btn { background-color: ${colors.coral} !important; border-color: ${colors.coral} !important; color: ${colors.tealForeground} !important; }
   }
-  [data-ogsc] .dm-btn { background-color: ${colors.coral} !important; border-color: ${colors.coral} !important; color: ${colors.ink} !important; }
-  [data-ogsb] .dm-btn { background-color: ${colors.coral} !important; border-color: ${colors.coral} !important; color: ${colors.ink} !important; }
+  [data-ogsc] .dm-btn { background-color: ${colors.coral} !important; border-color: ${colors.coral} !important; color: ${colors.tealForeground} !important; }
+  [data-ogsb] .dm-btn { background-color: ${colors.coral} !important; border-color: ${colors.coral} !important; color: ${colors.tealForeground} !important; }
 `

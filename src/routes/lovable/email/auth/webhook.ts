@@ -9,11 +9,10 @@ import { EmailChangeEmail } from '@/lib/email-templates/email-change'
 import { ReauthenticationEmail } from '@/lib/email-templates/reauthentication'
 
 // Configuration
-const SITE_NAME = "Source To Storybook"
+const SITE_NAME = "Reflection"
 const SENDER_DOMAIN = "notify.hperkins.com"
-const ROOT_DOMAIN = "hperkins.com"
 const FROM_DOMAIN = "notify.hperkins.com"
-const SITE_URL = `https://${ROOT_DOMAIN}`
+const SITE_URL = "https://source-to-storybook.lovable.app"
 
 // The SDK handler owns verification, dispatch, and retry semantics; this file
 // owns only the email decisions: subjects, templates, and per-type props.

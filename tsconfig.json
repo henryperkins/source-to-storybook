@@ -6,11 +6,6 @@
     "vitest.config.ts",
     "eslint.config.js"
   ],
-  "exclude": [
-    // Vendor copy owned by the attached design system: not imported by app
-    // code and not compatible with this project's exactOptionalPropertyTypes.
-    "src/design-system"
-  ],
   "compilerOptions": {
     "target": "ES2022",
     "jsx": "react-jsx",
@@ -32,7 +27,7 @@
     "noImplicitReturns": true,
     "noPropertyAccessFromIndexSignature": true,
     "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true,
+    "exactOptionalPropertyTypes": false,
     "noUncheckedSideEffectImports": true,
     "paths": {
       "@/*": ["./src/*"]

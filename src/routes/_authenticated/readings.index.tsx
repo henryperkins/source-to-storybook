@@ -1,3 +1,4 @@
+import { Button, Input, Textarea, Label, Checkbox, Switch, RadioGroup, RadioGroupItem, Alert, AlertTitle, AlertDescription, TarotFlowProgress, FlowSidePanel, JournalEntryRow, TextLink, TopicChip } from "@/design-system/agent-transaction-99232c";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { formatDate, savedReadingsQuery } from "@/lib/queries";
@@ -15,13 +16,13 @@ function History() {
     <section className="flex flex-col gap-6 pt-6">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <span className="eyebrow">Your archive</span>
+          <span className="text-xs font-medium text-muted-foreground">Your archive</span>
           <h1 className="mt-2 text-4xl md:text-5xl">Saved readings</h1>
         </div>
-        <Link to="/new" className="btn">New reading</Link>
+        <Button asChild><Link to="/new" >New reading</Link></Button>
       </div>
       {data.length === 0 ? (
-        <div className="panel p-8 text-muted-foreground">
+        <div className="py-12 text-muted-foreground">
           No saved readings yet. Start a reading and choose <strong>Save reading</strong> to keep it here.
         </div>
       ) : (
@@ -32,7 +33,7 @@ function History() {
               <li key={r.id}>
                 <Link to="/readings/$id" params={{ id: r.id }} className="panel block p-5 transition hover:border-primary">
                   <div className="text-xs text-muted-foreground">{formatDate(r.created_at)}{hasReflection ? " · Reflection added" : ""}</div>
-                  <div className="mt-1 font-serif text-xl text-foreground">{r.question}</div>
+                  <div className="mt-1 font-display text-xl text-foreground">{r.question}</div>
                   <div className="mt-2 text-sm text-muted-foreground">{r.cards.map((c) => cardName(c.cardId)).join(" · ")}</div>
                 </Link>
               </li>

@@ -1,3 +1,4 @@
+import { Button, Input, Textarea, Label, Checkbox, Switch, RadioGroup, RadioGroupItem, Alert, AlertTitle, AlertDescription, TarotFlowProgress, FlowSidePanel, JournalEntryRow, TextLink, TopicChip } from "@/design-system/agent-transaction-99232c";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
 import { supabase } from "@/integrations/supabase/client";
@@ -19,10 +20,10 @@ function Reset() {
   }
   return (
     <div className="mx-auto flex min-h-screen max-w-md flex-col justify-center px-5">
-      <form onSubmit={submit} className="panel flex flex-col gap-4 p-6">
+      <form onSubmit={submit} className="flex flex-col gap-4">
         <h1 className="text-3xl">Choose a new password</h1>
-        <input className="field" type="password" minLength={8} required autoComplete="new-password" value={password} onChange={(e) => setPassword(e.target.value)} aria-label="New password" />
-        <button className="btn">Save password</button>
+        <Input type="password" minLength={8} required autoComplete="new-password" value={password} onChange={(e) => setPassword(e.target.value)} aria-label="New password" />
+        <Button >Save password</Button>
         {error && <p className="text-sm text-destructive">{error}</p>}
       </form>
     </div>

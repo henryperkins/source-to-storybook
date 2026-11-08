@@ -1,3 +1,4 @@
+import { Button, Input, Textarea, Label, Checkbox, Switch, RadioGroup, RadioGroupItem, Alert, AlertTitle, AlertDescription, TarotFlowProgress, FlowSidePanel, JournalEntryRow, TextLink, TopicChip } from "@/design-system/agent-transaction-99232c";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useQueryClient, useSuspenseQuery } from "@tanstack/react-query";
 import { useState } from "react";
@@ -34,10 +35,10 @@ function ReadingPage() {
 
   if (!r || (!r.saved && new Date(r.expires_at) < new Date()))
     return (
-      <div className="panel mt-6 p-8">
+      <div className="mt-6 py-8">
         <h1 className="text-3xl">This reading isn't available</h1>
         <p className="mt-2 text-muted-foreground">Unsaved readings expire after 24 hours.</p>
-        <Link to="/readings" className="btn mt-4">Saved readings</Link>
+        <Button asChild className="mt-4"><Link to="/readings" >Saved readings</Link></Button>
       </div>
     );
 
@@ -69,15 +70,15 @@ function ReadingPage() {
     <article className="flex flex-col gap-10 pt-6">
       <header className="relative flex flex-col gap-3">
         <img src={leaves.url} alt="" aria-hidden className="pointer-events-none absolute -top-4 right-0 hidden w-40 md:block" />
-        <span className="eyebrow">{formatDate(r.created_at)} · {r.saved ? "Saved" : "Not saved"}</span>
+        <span className="text-xs font-medium text-muted-foreground">{formatDate(r.created_at)} · {r.saved ? "Saved" : "Not saved"}</span>
         <h1 className="text-4xl md:text-5xl">{r.question}</h1>
         <div className="mt-2 flex flex-wrap items-center gap-3">
           {r.saved ? (
-            <button className="btn btn-secondary" onClick={() => setSaved(false)}>Unsave</button>
+            <Button variant="outline"  onClick={() => setSaved(false)}>Unsave</Button>
           ) : (
-            <button className="btn" onClick={() => setSaved(true)}>Save reading</button>
+            <Button  onClick={() => setSaved(true)}>Save reading</Button>
           )}
-          <button className="btn btn-secondary" onClick={remove}>Delete</button>
+          <Button variant="outline"  onClick={remove}>Delete</Button>
           {status && <span role="status" className="text-sm text-primary">{status}</span>}
         </div>
         {!r.saved && <p className="text-xs text-muted-foreground">{COPY.saveReading} Unsaved readings expire 24 hours after they start.</p>}
@@ -96,9 +97,9 @@ function ReadingPage() {
           const card = r.cards.find((c) => c.position === u.position)!;
           const src = it.sources[u.position];
           return (
-            <div key={u.position} className="panel flex flex-col gap-3 p-6">
-              <div className="eyebrow">{positionLabel[u.position]} · {cardName(card.cardId)}, {card.orientation}</div>
-              <p className="font-serif text-lg leading-relaxed text-foreground">{u.interpretation}</p>
+            <div key={u.position} className="flex flex-col gap-3 border-t border-border py-6">
+              <div className="text-xs font-medium text-muted-foreground">{positionLabel[u.position]} · {cardName(card.cardId)}, {card.orientation}</div>
+              <p className="font-display text-lg leading-relaxed text-foreground">{u.interpretation}</p>
               {src && (
                 <details className="text-sm text-muted-foreground">
                   <summary className="cursor-pointer">Source meaning</summary>
@@ -109,49 +110,49 @@ function ReadingPage() {
             </div>
           );
         })}
-        <div className="panel flex flex-col gap-3 bg-secondary/40 p-6">
-          <div className="eyebrow">Bringing it together</div>
-          <p className="font-serif text-lg leading-relaxed">{it.synthesis}</p>
-          <div className="eyebrow mt-3">An optional next step</div>
+        <div className="flex flex-col gap-3 border-t border-border py-6">
+          <div className="text-xs font-medium text-muted-foreground">Bringing it together</div>
+          <p className="font-display text-lg leading-relaxed">{it.synthesis}</p>
+          <div className="mt-3 text-xs font-medium text-muted-foreground">An optional next step</div>
           <p>{it.action}</p>
           {it.reflectionQuestion && (
             <>
-              <div className="eyebrow mt-3">A question to sit with</div>
-              <p className="font-serif text-lg italic">{it.reflectionQuestion}</p>
+              <div className="mt-3 text-xs font-medium text-muted-foreground">A question to sit with</div>
+              <p className="font-display text-lg italic">{it.reflectionQuestion}</p>
             </>
           )}
         </div>
       </section>
 
-      <section aria-labelledby="reflection" className="panel flex flex-col gap-4 p-6">
+      <section aria-labelledby="reflection" className="flex flex-col gap-4">
         <h2 id="reflection" className="text-xl">Your reflection</h2>
         {editing ? (
           <>
-            <textarea className="field min-h-40 font-serif text-lg" value={body} maxLength={10000} onChange={(e) => setBody(e.target.value)} aria-label="Reflection" />
+            <Textarea rows={7} value={body} maxLength={10000} onChange={(e) => setBody(e.target.value)} aria-label="Reflection" />
             <fieldset className="flex flex-wrap gap-3 text-sm">
               <legend className="mb-2 text-sm text-muted-foreground">How does this reading sit with you?</legend>
               {stances.map(([v, l]) => (
-                <label key={v} className="flex items-center gap-1">
+                <Label key={v} className="flex items-center gap-1">
                   <input type="radio" name="stance" value={v} checked={stance === v} onChange={() => setStance(v)} /> {l}
-                </label>
+                </Label>
               ))}
             </fieldset>
             <div className="flex gap-2">
-              <button className="btn" onClick={saveReflection}>Save reflection</button>
-              <button className="btn btn-secondary" onClick={() => setEditing(false)}>Cancel</button>
+              <Button  onClick={saveReflection}>Save reflection</Button>
+              <Button variant="outline"  onClick={() => setEditing(false)}>Cancel</Button>
             </div>
             {!r.saved && <p className="text-xs text-muted-foreground">Saving a reflection also saves this reading.</p>}
           </>
         ) : r.reflection ? (
           <>
-            <p className="whitespace-pre-wrap font-serif text-lg">{r.reflection.body || <em className="text-muted-foreground">No text</em>}</p>
+            <p className="whitespace-pre-wrap font-display text-lg">{r.reflection.body || <em className="text-muted-foreground">No text</em>}</p>
             <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
               <StanceChip stance={r.reflection.stance} /> Saved {formatDate(r.reflection.updated_at)}
             </div>
-            <button className="btn btn-secondary self-start" onClick={() => setEditing(true)}>Edit reflection</button>
+            <Button variant="outline" className="self-start" onClick={() => setEditing(true)}>Edit reflection</Button>
           </>
         ) : (
-          <button className="btn btn-secondary self-start" onClick={() => setEditing(true)}>Add reflection</button>
+          <Button variant="outline" className="self-start" onClick={() => setEditing(true)}>Add reflection</Button>
         )}
       </section>
     </article>

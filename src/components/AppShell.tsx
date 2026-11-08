@@ -1,8 +1,9 @@
-import { Link, useNavigate } from "@tanstack/react-router";
+import { Link, useNavigate, useRouterState } from "@tanstack/react-router";
 import { useQueryClient } from "@tanstack/react-query";
 import type { ReactNode } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { LeafFooter, Logo } from "@/components/Brand";
+import { Button, FlowHeader, FlowNavTab } from "@/design-system/agent-transaction-99232c";
+import { LeafFooter } from "@/components/Brand";
 
 export function AppShell({ children }: { children: ReactNode }) {
   const navigate = useNavigate();
@@ -13,20 +14,17 @@ export function AppShell({ children }: { children: ReactNode }) {
     await supabase.auth.signOut();
     navigate({ to: "/auth", replace: true });
   }
-  const link = "rounded-full px-3 py-2 text-sm text-muted-foreground hover:text-foreground";
-  const active = { className: "rounded-full px-3 py-2 text-sm bg-muted text-foreground" };
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
   return (
     <div className="relative min-h-screen">
-      <header className="relative z-10 mx-auto border-b border-border flex max-w-5xl flex-wrap items-center justify-between gap-2 px-5 py-4">
-        <Logo to="/readings" />
-        <nav className="flex flex-wrap items-center gap-1">
-          <Link to="/readings" className={link} activeProps={active} activeOptions={{ exact: true }}>Saved readings</Link>
-          <Link to="/new" className={link} activeProps={active}>New reading</Link>
-          <Link to="/account" className={link} activeProps={active}>Account</Link>
-          <button type="button" onClick={signOut} className={link}>Sign out</button>
-        </nav>
-      </header>
-      <main className="relative z-10 mx-auto max-w-5xl px-5 pb-48">{children}</main>
+      <div className="mx-auto max-w-5xl px-5">
+        <FlowHeader brand={<Link to="/readings">Reflection</Link>} navigation={<>
+          <FlowNavTab href="/readings" variant={pathname === "/readings" ? "current" : "default"}>Saved readings</FlowNavTab>
+          <FlowNavTab href="/new" variant={pathname === "/new" ? "current" : "default"}>New reading</FlowNavTab>
+          <FlowNavTab href="/account" variant={pathname === "/account" ? "current" : "default"}>Account</FlowNavTab>
+        </>} actions={<Button variant="ghost" onClick={signOut}>Sign out</Button>} />
+      </div>
+      <main className="relative z-10 mx-auto max-w-5xl px-5 pb-12">{children}</main>
       <LeafFooter />
     </div>
   );

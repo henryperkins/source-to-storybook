@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import rose from "@/assets/hero-rose.webp.asset.json";
-import { LeafFooter, Logo, PositionTiles } from "@/components/Brand";
+import bloom from "@/design-system/agent-transaction-99232c/assets/illustrations/reflection-hero-bloom-cut-from-supplied-mock.png";
+import { Button, FlowHeader, TextLink } from "@/design-system/agent-transaction-99232c";
+import { LeafFooter, PositionTiles } from "@/components/Brand";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -17,29 +18,28 @@ export const Route = createFileRoute("/")({
 });
 
 function Landing() {
-  return (
-    <div className="relative min-h-screen overflow-hidden pb-40">
-      <img src={rose.url} alt="" aria-hidden className="fade-bottom pointer-events-none absolute -right-24 -top-10 w-[34rem] max-w-none opacity-90 md:right-0 md:w-[46rem]" />
-      <div className="relative mx-auto flex max-w-5xl flex-col gap-10 px-5 pt-6">
-        <header className="flex items-center justify-between">
-          <Logo />
-          <Link to="/auth" search={{ mode: "signin" }} className="text-sm text-foreground underline-offset-4 hover:underline">Sign in</Link>
-        </header>
-        <div className="flex max-w-xl flex-col gap-6 pt-40 md:pt-24">
-          <h1 className="text-6xl text-ink md:text-8xl">A little space to reflect.</h1>
-          <p className="text-xl text-foreground">Bring a question. Make room for another perspective.</p>
-          <div className="flex flex-wrap gap-3">
-            <Link to="/auth" className="btn">Draw three cards</Link>
-            <Link to="/auth" search={{ mode: "signin" }} className="btn btn-secondary">I have an account</Link>
-          </div>
-        </div>
-        <section className="flex flex-col gap-3">
-          <span className="eyebrow">Reflection positions</span>
-          <PositionTiles />
-        </section>
-        <p className="text-sm text-muted-foreground">Reflection, not prediction. Save what's useful, write what it means to you, and return with time.</p>
-      </div>
-      <LeafFooter />
+  return <div className="min-h-screen overflow-hidden">
+    <div className="mx-auto max-w-5xl px-5">
+      <FlowHeader brand={<Link to="/">Reflection</Link>} actions={<TextLink href="/auth?mode=signin">Sign in</TextLink>} />
     </div>
-  );
+    <section className="relative isolate overflow-hidden">
+      <img src={bloom} alt="" className="pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div className="relative mx-auto flex max-w-5xl flex-col gap-6 px-5 py-24 md:py-32">
+        <p className="text-xs font-medium text-muted-foreground">REFLECTION, NOT PREDICTION</p>
+        <h1 className="max-w-xl font-display text-6xl md:text-7xl">Reflection</h1>
+        <p className="max-w-md text-2xl">A little space to reflect.</p>
+        <p className="max-w-md text-lg">Bring a question. Make room for another perspective.</p>
+        <div className="flex flex-wrap gap-3">
+          <Button asChild size="lg"><Link to="/auth">Draw three cards</Link></Button>
+          <Button asChild size="lg" variant="outline"><Link to="/auth" search={{ mode: "signin" }}>I have an account</Link></Button>
+        </div>
+      </div>
+    </section>
+    <section className="mx-auto flex max-w-5xl flex-col gap-6 px-5 py-10">
+      <h2 className="font-display text-3xl">Three places to look</h2>
+      <PositionTiles />
+      <p className="text-sm text-muted-foreground">Save what's useful, write what it means to you, and return with time.</p>
+    </section>
+    <LeafFooter />
+  </div>;
 }

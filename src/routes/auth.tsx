@@ -1,3 +1,4 @@
+import { Button, Input, Textarea, Label, Checkbox, Switch, RadioGroup, RadioGroupItem, Alert, AlertTitle, AlertDescription, TarotFlowProgress, FlowSidePanel, JournalEntryRow, TextLink, TopicChip } from "@/design-system/agent-transaction-99232c";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState, type FormEvent } from "react";
 import { z } from "zod";
@@ -79,35 +80,35 @@ function AuthPage() {
 
   return (
     <div className="mx-auto flex min-h-screen max-w-md flex-col justify-center gap-6 px-5 py-12">
-      <a href="/" className="font-serif text-2xl text-foreground">Reflection</a>
-      <div className="panel flex flex-col gap-5 p-6">
+      <a href="/" className="font-display text-2xl text-foreground">Reflection</a>
+      <div className="flex flex-col gap-5">
         <h1 className="text-3xl">{mode === "signup" ? "Create your account" : mode === "signin" ? "Welcome back" : "Reset password"}</h1>
         {mode !== "reset" && (
           <>
-            <button type="button" className="btn btn-secondary" onClick={google}>Continue with Google</button>
+            <Button type="button" variant="outline"  onClick={google}>Continue with Google</Button>
             <div className="text-center text-xs text-muted-foreground">or with email</div>
           </>
         )}
         <form onSubmit={submit} className="flex flex-col gap-3">
-          <label className="flex flex-col gap-1 text-sm">Email
-            <input className="field" type="email" required autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-          </label>
+          <Label className="flex flex-col gap-1 text-sm">Email
+            <Input type="email" required autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+          </Label>
           {mode !== "reset" && (
-            <label className="flex flex-col gap-1 text-sm">Password
-              <input className="field" type="password" required minLength={8} autoComplete={mode === "signup" ? "new-password" : "current-password"} value={password} onChange={(e) => setPassword(e.target.value)} />
-            </label>
+            <Label className="flex flex-col gap-1 text-sm">Password
+              <Input type="password" required minLength={8} autoComplete={mode === "signup" ? "new-password" : "current-password"} value={password} onChange={(e) => setPassword(e.target.value)} />
+            </Label>
           )}
-          <button className="btn mt-2" disabled={busy}>{busy ? "Please wait…" : mode === "signup" ? "Create account" : mode === "signin" ? "Sign in" : "Send reset link"}</button>
+          <Button className="mt-2" disabled={busy}>{busy ? "Please wait…" : mode === "signup" ? "Create account" : mode === "signin" ? "Sign in" : "Send reset link"}</Button>
         </form>
-        {msg && <p role="status" className={msg.kind === "error" ? "text-sm text-destructive" : "text-sm text-success-foreground"}>{msg.text}</p>}
+        {msg && <p role="status" className={msg.kind === "error" ? "text-sm text-destructive" : "text-sm text-primary"}>{msg.text}</p>}
         <div className="flex flex-wrap justify-between gap-2 text-sm">
           {mode === "signup" ? (
-            <button type="button" className="underline" onClick={() => setMode("signin")}>I already have an account</button>
+            <Button type="button" variant="link"  onClick={() => setMode("signin")}>I already have an account</Button>
           ) : (
-            <button type="button" className="underline" onClick={() => setMode("signup")}>Create an account</button>
+            <Button type="button" variant="link"  onClick={() => setMode("signup")}>Create an account</Button>
           )}
-          {mode === "signin" && <button type="button" className="underline" onClick={() => setMode("reset")}>Forgot password?</button>}
-          {mode === "reset" && <button type="button" className="underline" onClick={() => setMode("signin")}>Back to sign in</button>}
+          {mode === "signin" && <Button type="button" variant="link"  onClick={() => setMode("reset")}>Forgot password?</Button>}
+          {mode === "reset" && <Button type="button" variant="link"  onClick={() => setMode("signin")}>Back to sign in</Button>}
         </div>
       </div>
     </div>

@@ -1,55 +1,24 @@
 import { Link } from "@tanstack/react-router";
-import situation from "@/assets/position-situation.png.asset.json";
-import tension from "@/assets/position-tension.png.asset.json";
-import possibility from "@/assets/position-possibility.png.asset.json";
-import ribbon from "@/assets/spread-ribbon-960.webp.asset.json";
+import { BrandReturnMark, ReflectionCard, TopicChip } from "@/design-system/agent-transaction-99232c";
+import keeping from "@/design-system/agent-transaction-99232c/assets/illustrations/reflection-keeping-paper.png";
+import returning from "@/design-system/agent-transaction-99232c/assets/illustrations/reflection-returning-paper.png";
+import reflecting from "@/design-system/agent-transaction-99232c/assets/illustrations/reflection-reflecting-paper.png";
 
 export function Logo({ to = "/" }: { to?: "/" | "/readings" }) {
-  return (
-    <Link to={to} className="flex items-center gap-2 font-display text-xl font-semibold text-foreground">
-      <span className="logo-mark" aria-hidden /> Reflection
-    </Link>
-  );
+  return <Link to={to} className="flex items-center gap-2 font-geometric text-xl"><BrandReturnMark variant="paper" />Reflection</Link>;
 }
-
 const tiles = [
-  { n: 1, title: "Situation", sub: "What's here now", art: situation.url },
-  { n: 2, title: "Tension", sub: "What pulls against it", art: tension.url },
-  { n: 3, title: "Possibility", sub: "What could open up", art: possibility.url },
-];
-
+  { title: "Situation", body: "What's here now", art: keeping, tone: "Mint" },
+  { title: "Tension", body: "What pulls against it", art: reflecting, tone: "Butter" },
+  { title: "Possibility", body: "What could open up", art: returning, tone: "Sage" },
+] as const;
 export function PositionTiles() {
-  return (
-    <div className="grid gap-3 sm:grid-cols-3">
-      {tiles.map((t) => (
-        <div key={t.n} className="panel relative flex items-center gap-3 overflow-hidden p-4">
-          <span className="num-badge">{t.n}</span>
-          <div className="relative z-10">
-            <div className="font-display font-semibold">{t.title}</div>
-            <div className="text-sm text-muted-foreground">{t.sub}</div>
-          </div>
-          <img src={t.art} alt="" className="absolute -right-2 top-0 h-full w-1/2 object-cover object-left opacity-80" />
-        </div>
-      ))}
-    </div>
-  );
+  return <div className="grid gap-4 sm:grid-cols-3">{tiles.map((t, i) => <ReflectionCard key={t.title} title={t.title} body={t.body} topic={<TopicChip tone={t.tone} label={String(i + 1).padStart(2, "0")} />}><img src={t.art} alt="" className="h-20 w-full object-contain" /></ReflectionCard>)}</div>;
 }
-
 export function LeafFooter() {
-  return <div aria-hidden className="leaf-footer" style={{ backgroundImage: `url(${ribbon.url})` }} />;
+  return <footer aria-hidden className="mx-auto flex max-w-5xl justify-end px-5 py-8"><img src={returning} alt="" className="h-24 w-40 object-contain" /></footer>;
 }
-
-export const stanceLabel: Record<string, string> = {
-  unspecified: "Not selected",
-  resonates: "Resonates",
-  unsure: "Unsure",
-  disagree: "Disagree",
-};
+export const stanceLabel: Record<string, string> = { unspecified: "Not selected", resonates: "Resonates", unsure: "Unsure", disagree: "Disagree" };
 export function StanceChip({ stance }: { stance: string }) {
-  const tone = stance === "resonates" ? "text-primary" : stance === "unsure" ? "text-accent" : stance === "disagree" ? "text-destructive" : "text-muted-foreground";
-  return (
-    <span className="pill">
-      <span className={`dot ${tone}`} /> {stanceLabel[stance] ?? stance}
-    </span>
-  );
+  return <TopicChip tone={stance === "resonates" ? "Mint" : stance === "unsure" ? "Butter" : "Sage"} label={stanceLabel[stance] ?? stance} />;
 }

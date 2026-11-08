@@ -1,3 +1,4 @@
+import { Button, Input, Textarea, Label, Checkbox, Switch, RadioGroup, RadioGroupItem, Alert, AlertTitle, AlertDescription, TarotFlowProgress, FlowSidePanel, JournalEntryRow, TextLink, TopicChip } from "@/design-system/agent-transaction-99232c";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
@@ -49,29 +50,29 @@ function NewReading() {
   return (
     <section className="mx-auto flex max-w-3xl flex-col gap-6 pt-6">
       <div>
-        <span className="eyebrow">Reflection, not prediction</span>
+        <span className="text-xs font-medium text-muted-foreground">Reflection, not prediction</span>
         <h1 className="mt-2 text-4xl md:text-5xl">What would you like to think about?</h1>
       </div>
       <PositionTiles />
       {!profile.ai_enabled && (
-        <div className="panel flex flex-col gap-3 p-5" role="status">
+        <div className="flex flex-col gap-3 border-t border-border py-5" role="status">
           <h2 className="text-lg">AI readings are off</h2>
           <p className="text-sm text-muted-foreground">{COPY.aiPermission}</p>
-          <Link to="/account" className="btn self-start">Turn on AI readings</Link>
+          <Button asChild className="self-start"><Link to="/account" >Turn on AI readings</Link></Button>
         </div>
       )}
-      <form onSubmit={submit} className="panel flex flex-col gap-4 p-6">
-        <label className="flex flex-col gap-2 text-sm font-medium">Your question
-          <textarea className="field min-h-32 font-serif text-lg" maxLength={MAX_QUESTION} value={question} onChange={(e) => setQuestion(e.target.value)} placeholder="How can I approach the next few weeks at work with more care?" disabled={busy} />
-        </label>
+      <form onSubmit={submit} className="flex flex-col gap-4">
+        <Label className="flex flex-col gap-2 text-sm font-medium">Your question
+          <Textarea rows={5} maxLength={MAX_QUESTION} value={question} onChange={(e) => setQuestion(e.target.value)} placeholder="How can I approach the next few weeks at work with more care?" disabled={busy} />
+        </Label>
         <div className="flex items-center justify-between text-xs text-muted-foreground">
-          <label className="flex items-center gap-2 text-sm text-foreground">
+          <Label className="flex items-center gap-2 text-sm text-foreground">
             <input type="checkbox" checked={reversals} onChange={(e) => setReversals(e.target.checked)} disabled={busy} /> Include reversed cards
-          </label>
+          </Label>
           <span>{question.length}/{MAX_QUESTION}</span>
         </div>
         <p className="text-xs text-muted-foreground">{COPY.startProcessing} {COPY.providerRetention}</p>
-        <button className="btn" disabled={busy || !profile.ai_enabled || !question.trim()}>{busy ? "Drawing…" : "Draw three cards"}</button>
+        <Button  disabled={busy || !profile.ai_enabled || !question.trim()}>{busy ? "Drawing…" : "Draw three cards"}</Button>
         {busy && (
           <div role="status" aria-live="polite" className="flex flex-col gap-2">
             <div className="flex flex-wrap gap-2">

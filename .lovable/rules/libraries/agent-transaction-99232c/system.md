@@ -102,5 +102,17 @@ Solstice’s Reflection look is thoughtful, botanical, and editorial. Paper and 
 ## States
 - In-flight actions use `<Button loading>`; reserve `disabled` (faded) for unavailable actions.
 
+## Study plates
+- The six Set 04 illustrations are intentional library assets in `assets/illustrations/study-*jpg.png`; import their original bytes, never regenerate them. The exported design-preview screenshot is reference-only and does not ship.
+- Use `VisualReferenceSetHeader` once as a collection’s page heading, `VisualReferencePlateCaption` inside a figure, and `TopicChip` for non-interactive topic metadata. Topic chips are not transaction statuses or actions.
+- Adapt large fixed-width Figma compositions to responsive grids without altering global tokens or compact control defaults. Keep Fraunces for expressive headings and Figtree for captions and metadata.
+
+## Paper & Evening
+- Original exported logos, botanical illustrations, chart art, and icons ship verbatim under assets; design-preview screenshots stay reference-only.
+- Opt into scoped `.reflection-paper` or `.reflection-evening` modes on a container; these do not replace the global light/dark tokens. Both modes are included in generated token-only exports.
+- Reuse Button for actions and FlowNavTab for navigation; current/default navigation variants replace the two duplicate Figma components. Fields are semantic labeled Input/Textarea compositions, not static visual shells.
+- ReflectionCard uses topic/actions slots; FlowSidePanel is an unframed companion column. JournalTarotBasis takes application-supplied cards and real destinations. Astrology facts, reading interpretation, account actions, and persistence belong to consumers, never the library.
+- The product previews use local illustrative state only; they are not real astrology calculations, AI readings, accounts, or permanent journal storage.
+
 
 <!-- END THIRD-PARTY LIBRARY CONTENT: design-system/agent-transaction-99232c -->

@@ -117,6 +117,7 @@
 }
 
 @theme {
+  --shadow-reflection: 0 10px 30px -12px rgb(16 63 70 / 0.25);
   --font-sans: "Figtree", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
   --font-display: "Fraunces", Georgia, serif;
@@ -225,4 +226,42 @@
 
 @layer base {
   * { letter-spacing: 0; }
+}
+
+/* Scoped source modes: compare both without changing the Solstice defaults. */
+.reflection-paper {
+  --background: hsl(44 48% 94%);
+  --foreground: hsl(188 63% 17%);
+  --card: hsl(45 50% 97%);
+  --card-foreground: hsl(188 63% 17%);
+  --primary: hsl(182 73% 26%);
+  --primary-foreground: hsl(44 48% 94%);
+  --muted-foreground: hsl(188 35% 30%);
+  --border: hsl(188 28% 65%);
+  --input: hsl(188 28% 55%);
+  --ring: hsl(182 73% 26%);
+  --secondary: hsl(44 81% 71%);
+  --secondary-foreground: hsl(188 63% 17%);
+  --mint: hsl(144 35% 75%);
+  --mint-foreground: hsl(188 63% 17%);
+  --sage: hsl(82 22% 64%);
+  --sage-foreground: hsl(188 63% 17%);
+}
+.reflection-evening {
+  --background: hsl(186 73% 12%);
+  --foreground: hsl(44 48% 94%);
+  --card: hsl(188 63% 17%);
+  --card-foreground: hsl(44 48% 94%);
+  --primary: hsl(144 35% 75%);
+  --primary-foreground: hsl(188 63% 17%);
+  --muted-foreground: hsl(144 35% 75%);
+  --border: hsl(144 22% 45%);
+  --input: hsl(144 30% 60%);
+  --ring: hsl(144 35% 75%);
+  --secondary: hsl(44 81% 71%);
+  --secondary-foreground: hsl(188 63% 17%);
+  --mint: hsl(144 35% 75%);
+  --mint-foreground: hsl(188 63% 17%);
+  --sage: hsl(82 22% 64%);
+  --sage-foreground: hsl(188 63% 17%);
 }

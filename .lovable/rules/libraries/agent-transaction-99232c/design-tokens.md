@@ -75,6 +75,14 @@ Border-radius classes:
 | `rounded-4xl` | `--radius-4xl` |
 | `rounded` | `--radius` |
 
+## Shadows
+
+Box-shadow classes:
+
+| Class | CSS variable |
+|---|---|
+| `shadow-reflection` | `--shadow-reflection` |
+
 
 
 <!-- END THIRD-PARTY LIBRARY CONTENT: design-system/agent-transaction-99232c -->

@@ -2,6 +2,27 @@
 // The side-effect CSS import is what delivers the theme (tokens, fonts, base
 // styles) to consumers that attach this library.
 import "./styles.css";
+export { BrandReturnMark, type BrandReturnMarkProps } from "./components/ui/brand-return-mark";
+export { TextLink, type TextLinkProps } from "./components/ui/text-link";
+export { FlowNavTab, type FlowNavTabProps } from "./components/ui/flow-nav-tab";
+export { FlowHeader, type FlowHeaderProps } from "./components/ui/flow-header";
+export { FlowMomentArt, type FlowMomentArtProps } from "./components/ui/flow-moment-art";
+export { IconArrowRight, type IconArrowRightProps } from "./components/ui/icon-arrow-right";
+export { AstrologyCompactInput, type AstrologyCompactInputProps } from "./components/ui/astrology-compact-input";
+export { AstrologyResponsiveReflectionField, type AstrologyResponsiveReflectionFieldProps } from "./components/ui/astrology-responsive-reflection-field";
+export { TarotQuestionField, type TarotQuestionFieldProps } from "./components/ui/tarot-question-field";
+export { JournalFilterChip, type JournalFilterChipProps } from "./components/ui/journal-filter-chip";
+export { HomeReturnRow, type HomeReturnRowProps } from "./components/ui/home-return-row";
+export { JournalEntryRow, type JournalEntryRowProps } from "./components/ui/journal-entry-row";
+export { ReflectionCard, type ReflectionCardProps } from "./components/ui/reflection-card";
+export { FlowSidePanel, type FlowSidePanelProps } from "./components/ui/flow-side-panel";
+export { TarotFlowProgress, type TarotFlowProgressProps, type TarotStep } from "./components/ui/tarot-flow-progress";
+export { TarotBotanicalCardFace, type TarotBotanicalCardFaceProps } from "./components/ui/tarot-botanical-card-face";
+export { JournalTarotBasis, type JournalTarotBasisProps, type TarotBasisCard } from "./components/ui/journal-tarot-basis";
+export { AstrologySidePanelContent, type AstrologySidePanelContentProps } from "./components/ui/astrology-side-panel-content";
+export { TopicChip, topicChipVariants, type TopicChipProps } from "./components/ui/topic-chip";
+export { VisualReferenceSetHeader, type VisualReferenceSetHeaderProps } from "./components/ui/visual-reference-set-header";
+export { VisualReferencePlateCaption, type VisualReferencePlateCaptionProps } from "./components/ui/visual-reference-plate-caption";
 export { Toaster, toast, type SolsticeToasterProps } from "./components/ui/sonner";
 export {
   Breadcrumb,

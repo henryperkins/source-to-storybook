@@ -11,6 +11,7 @@ function block(css: string, selector: string): Record<string, string> {
 function typeOf(name: string): string {
   if (name === "radius") return "dimension";
   if (name.startsWith("font")) return "fontFamily";
+  if (name.startsWith("shadow")) return "shadow";
   return "color";
 }
 
@@ -25,11 +26,14 @@ export function buildTokens(css: string) {
     light: group(light),
     dark: group(dark),
     font: group(fonts),
+    paper: group(block(css, ".reflection-paper")),
+    evening: group(block(css, ".reflection-evening")),
   };
   const decl = (vars: Record<string, string>) =>
     Object.entries(vars).map(([k, v]) => `  --${k}: ${v};`).join("\n");
   const flatCss =
     `/* Solstice — Reflection tokens (token-only fallback; no font loading or Tailwind wiring). Generated from src/styles.css — do not edit by hand. */\n` +
-    `:root {\n${decl({ ...fonts, ...light })}\n}\n\n.dark {\n${decl(dark)}\n}\n`;
+    `:root {\n${decl({ ...fonts, ...light })}\n}\n\n.dark {\n${decl(dark)}\n}\n` +
+    `\n.reflection-paper {\n${decl(block(css, ".reflection-paper"))}\n}\n\n.reflection-evening {\n${decl(block(css, ".reflection-evening"))}\n}\n`;
   return { json, flatCss };
 }

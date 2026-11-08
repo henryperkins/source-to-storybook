@@ -2,7 +2,7 @@
   "meta": {
     "name": "Agent Transaction",
     "package": "@ws-v5ukikg9bjqobwdthkfv/005a5acd-5909-41fc-81e7-ee0cbf01f797",
-    "version": "1.6.0",
+    "version": "2.0.0",
     "framework": "react",
     "css_framework": "tailwind",
     "starter_template": "custom_design_system",
@@ -11,27 +11,27 @@
     ],
     "source_type": "local",
     "source_manifest": {
-      "#enrichment": "b15db47e3dcce96e354a8a56015ab343bbe2bbc205c7625cef10f1263cf8d5d7",
+      "#enrichment": "8d8963c29208ee6e94048267bf01a2485986a84aa2e921b1e7faea82b9d15c83",
       ".dsignore": "a792f8ee80354b15a1782a6ea8d32076",
       ".gitignore": "6059213806e442947666752f3db6bfdc",
-      ".lovable/component-usage.md": "64850482f1f02417c19f0b72372ea82f",
+      ".lovable/component-usage.md": "fde54370ffbdebba623fb7d0b6f5f179",
       ".lovable/meta.yaml": "8794970d6049858cc148d2b86f7a2b22",
       ".lovable/plan/denser-spacing-for-solstice-2026-10-25.md": "5e845ae745802fd971ed07361579b640",
       ".lovable/plan/transactions-tests-and-outside-lovable-packaging-2026-10-26.md": "3bfba61d0bb78333be8a53900ef92057",
       ".lovable/project.json": "f0767902c7fb20ee3e4dc3964afc66bc",
       ".lovable/sources.yaml": "d60f4c15e1261caabb4a28841c7246e9",
-      ".lovable/system.md": "507882b9892a8783938275d86798922a",
-      "AGENTS.md": "1e49621954e1269297772fac247c0747",
-      "CHANGELOG.md": "6778d3ba8b26ea70e209f3f5233fb2b6",
+      ".lovable/system.md": "dfc8dcb1f26db5f66172553c39fc713b",
+      "AGENTS.md": "912912c4deceeba0367f23dd9ccd6cf7",
+      "CHANGELOG.md": "f5c9c5169585714bc4b9be2f8cf168e6",
       "README.md": "49db378f4e326bf4b2a38625ccc0261f",
       "bunfig.toml": "38e61efe6317fb5294203198d62e8338",
       "components.json": "30d3d035361ce807021f5c54620962e9",
       "eslint.config.js": "07a67437fb1a45ab36d6de0145ff09de",
       "lovable.toml": "956f55f44ff7952457c73fd1122d6bcd",
       "mockupPreviewPlugin.ts": "a6cce6578baacdf702fc6a3fc3e44395",
-      "package.json": "a47d8b8f7f81eed27126bcd25283d0d5",
+      "package.json": "401e117e122dc7db000818674f81f3bd",
       "public/favicon.ico": "9f504444f85a5af2eef9264b02ae40be",
-      "roadmap.md": "6af44709f8f302db11f106a38449a516",
+      "roadmap.md": "cdda971611c290190a1710b61d1d15fa",
       "scripts/export-tokens.ts": "f96def394df18a258e58ef2b3320f2ee",
       "src/assets/fonts/figtree-latin-ext-wght-italic.woff2": "86b3f157cf65cf2ccdc747b77f974a57",
       "src/assets/fonts/figtree-latin-ext-wght-normal.woff2": "eca8d8b337ff647d44857ad24dae0251",
@@ -41,10 +41,38 @@
       "src/assets/fonts/jetbrains-mono-latin-wght-normal.woff2": "b058178d7f309414f8f856b99fd80d9b",
       "src/assets/fonts/outfit-latin-ext-wght-normal.woff2": "6a2414e384c386019774bd42eae42c9b",
       "src/assets/fonts/outfit-latin-wght-normal.woff2": "fdf9c509a8095ffa556117f486a94a8d",
+      "src/assets/icons/reflection-arrow.png": "490f3eed0481d67d5221816b37b972f4",
+      "src/assets/icons/reflection-check.png": "538180083173ee9c1cbab5209191fbbf",
+      "src/assets/icons/reflection-vector.svg": "6cb93cbb4bc12677e543be167899a5ff",
+      "src/assets/illustrations/reflection-artwork-evening.png": "aac697abd98d10cc6d889933b4924178",
+      "src/assets/illustrations/reflection-botanical-card-study.png": "469e9b0bd25a188285532c76794cb625",
       "src/assets/illustrations/reflection-botanical.jpg": "c5545858efef667a3343a810ee591a30",
+      "src/assets/illustrations/reflection-eveningjournaldesktop01home-artwork-evening.png": "de22559d51871537da84dc8504953f4a",
+      "src/assets/illustrations/reflection-eveningjournaldesktop30deletereading-artwork-evening.png": "2d9c7b340d61530b2d909726c5bc126c",
+      "src/assets/illustrations/reflection-eveningjournalmobile01home-artwork-evening.png": "e1fee3e838390fa7d4fcdb64ce17d347",
+      "src/assets/illustrations/reflection-eveningtarotdesktop01question-artwork-evening.png": "3f331c86ac5685ec6a747aa09e0aed2d",
+      "src/assets/illustrations/reflection-group-2.png": "be0865ad36a03d400444807870a8a7a8",
+      "src/assets/illustrations/reflection-group.png": "d2520e57e41a10bb494ce70965db800f",
+      "src/assets/illustrations/reflection-hero-bloom-cut-from-supplied-mock.png": "b4876d313863c7984691fac2c9a02283",
+      "src/assets/illustrations/reflection-keeping-evening.png": "636ab1861d769dacbdae9eb1a0c6d219",
+      "src/assets/illustrations/reflection-keeping-paper.png": "00d38f816a915ad787b6d3c2e287d7a9",
+      "src/assets/illustrations/reflection-reflecting-evening.png": "9d3ca74f590f0960b5a1db7059c9e8dd",
+      "src/assets/illustrations/reflection-reflecting-paper.png": "8e51d5d2453748feef0c0a8bddf154fd",
+      "src/assets/illustrations/reflection-returning-evening.png": "b0a6c8777a65143e6537c45ef5003403",
+      "src/assets/illustrations/reflection-returning-paper.png": "e5999347ce0bbffbc194bd5b035b22c7",
+      "src/assets/illustrations/study-inquiryjpg.png": "d30418f619975c9d94e94599cfbb1219",
+      "src/assets/illustrations/study-perspectivejpg.png": "4a4c59a9b9eda38fee0d968371aa3aac",
+      "src/assets/illustrations/study-possibilityjpg.png": "ee874148bcbd92a62eb46926cb6f8708",
+      "src/assets/illustrations/study-returnjpg.png": "92613767e700770130a135164427fa90",
+      "src/assets/illustrations/study-stillnessjpg.png": "0c545dd17daeb481a46fba87c572e5fa",
+      "src/assets/illustrations/study-tensionjpg.png": "f779cd504720422ee78a51ee905a6c56",
+      "src/assets/logos/reflection-evening.png": "335d697f0c4eb068d77cfc138d00cb0e",
+      "src/assets/logos/reflection-paper.png": "3c79dea02901a8c1d5abb80584fde1a6",
+      "src/components/showcase/PaperEvening.tsx": "42df0142b30fe7047ba2c5c9de4eeda9",
+      "src/components/showcase/Set04.tsx": "a9ece9678b13af399628ba6dd337860d",
       "src/components/showcase/avatar-june.jpg": "80724d5f9596c0d09dae2f559bc3d44b",
-      "src/components/showcase/component-docs.json": "148950cb5d02471c712257e05b01d2ba",
-      "src/components/showcase/shell.tsx": "0b496b6c143b0a672d562697b370fd3f",
+      "src/components/showcase/component-docs.json": "8030e30f992696c56375d4c8bd3928b9",
+      "src/components/showcase/shell.tsx": "9fefd5b1661edc660acf737554d2b4da",
       "src/components/ui/accordion.tsx": "f3af7e9a98697d1a89d871416a2cec65",
       "src/components/ui/activity-timeline.tsx": "4cfc9611d25095d1054eb3317d868a27",
       "src/components/ui/agent-action-card.tsx": "a94908537b63ec7a7f3d1461f3217e72",
@@ -52,8 +80,12 @@
       "src/components/ui/alert.tsx": "afb90f14eb247da4c53cce87d29d60cc",
       "src/components/ui/amount.tsx": "d538ce09837d40cae7fbe51dc0879148",
       "src/components/ui/approval-card.tsx": "286b6944d4612589b33348850aa37c8b",
+      "src/components/ui/astrology-compact-input.tsx": "503cf0d1142c1106329e8e72a4ee30a6",
+      "src/components/ui/astrology-responsive-reflection-field.tsx": "0fc263a197de3a33a2c8f8cb1f08e31f",
+      "src/components/ui/astrology-side-panel-content.tsx": "7bfc2bf18febb5628bf5ee9f6d61f8c1",
       "src/components/ui/avatar.tsx": "80cc5f0c26188b7a0d73594d81064ee9",
       "src/components/ui/badge.tsx": "328aa846e5d050ee54d41bb4205e06c6",
+      "src/components/ui/brand-return-mark.tsx": "f0cb2dd60866f08c7d692e0865dde004",
       "src/components/ui/breadcrumb.tsx": "fb27d060ab4af6f1e9ae3349657f0a5e",
       "src/components/ui/button.tsx": "3f3eb37aa8d70ca6011804795fab1fa5",
       "src/components/ui/calendar.tsx": "73fc246851150b06c8a6fbc7f72b78d9",
@@ -62,12 +94,22 @@
       "src/components/ui/date-picker.tsx": "16914448b3f3fc2bd03449e3b5bf76e5",
       "src/components/ui/dialog.tsx": "1e79442d89c9f8969a175c1f2deca81e",
       "src/components/ui/dropdown-menu.tsx": "364c348fbe944e68764a1983fe2058c4",
+      "src/components/ui/flow-header.tsx": "4c55f44b2d559703a43297f9f14cb033",
+      "src/components/ui/flow-moment-art.tsx": "a78b9dc05a8abf2548a4b20d70df35db",
+      "src/components/ui/flow-nav-tab.tsx": "aa2c247c7f1c45850bbe5f9089a7168e",
+      "src/components/ui/flow-side-panel.tsx": "f296960ec42bd0594197377892b99c19",
+      "src/components/ui/home-return-row.tsx": "049f8e03b551c247a67398cb0faa04a7",
+      "src/components/ui/icon-arrow-right.tsx": "84a30f59ee09a4665c9ae0bd91fbd524",
       "src/components/ui/input.tsx": "2191dfec79235eced26299846b4fd8f5",
+      "src/components/ui/journal-entry-row.tsx": "3150f58cf4c8a00b91e8325acf28d3a0",
+      "src/components/ui/journal-filter-chip.tsx": "d9c5eac7d2be6950c32f383946d70523",
+      "src/components/ui/journal-tarot-basis.tsx": "2eaad2989dfa6ac03b1740d53e830eb7",
       "src/components/ui/label.tsx": "9df74fae5d8866b2aaa314dac2e2d9a1",
       "src/components/ui/pagination.tsx": "aa8eb0f7afcfcddc8cd7a49e44cdf34c",
       "src/components/ui/popover.tsx": "55d970c3a980a4a0d221cb7d47ec24cf",
       "src/components/ui/progress.tsx": "52c89286266aab083717a7f0861deec1",
       "src/components/ui/radio-group.tsx": "bed4e2c5bc0c30f5141bec6f8c33dbd2",
+      "src/components/ui/reflection-card.tsx": "64ebc7af9650b68ac0e5766e9a2987e7",
       "src/components/ui/select.tsx": "c457aa6c9847fd2e031cff3ac721ddeb",
       "src/components/ui/separator.tsx": "433d163c4ffa00b59398a0c293198b5e",
       "src/components/ui/sheet.tsx": "26bfae0a35788f64e541b1ae763ed541",
@@ -78,34 +120,48 @@
       "src/components/ui/switch.tsx": "af47f8a3c7ec18c2607fea8da25d5cfb",
       "src/components/ui/table.tsx": "673706ddd0552e55e5518dc36b745f35",
       "src/components/ui/tabs.tsx": "b99d7c46d7790b6159ebbeffa0533a12",
+      "src/components/ui/tarot-botanical-card-face.tsx": "3edc63a1bde8eb489191c91ed7157d85",
+      "src/components/ui/tarot-flow-progress.tsx": "bc48c24400cc1e495bdea9c6df24647c",
+      "src/components/ui/tarot-question-field.tsx": "621757a5a712e23bf411cfcd8c5851fa",
+      "src/components/ui/text-link.tsx": "7848daba53b14bee8144a4cfd5574a88",
       "src/components/ui/textarea.tsx": "d23ab845fa05a92bec186e6621aef8bd",
       "src/components/ui/tooltip.tsx": "41d58a8e15032bd90fd0ea5f51adc630",
-      "src/index.ts": "ce61a16bf055b06e0073a452698397b2",
+      "src/components/ui/topic-chip.tsx": "40bf5b8ecf177a9fd7fe0c8395533310",
+      "src/components/ui/visual-reference-plate-caption.tsx": "07f4b394517e04cc40ac07027e812531",
+      "src/components/ui/visual-reference-set-header.tsx": "33c18cb7025eadc60267ee50ead26539",
+      "src/index.ts": "a52669900bc2aa7df65e60c6059735ef",
       "src/lib/utils.ts": "d9837f38cc05303254571985e3164050",
       "src/mockup-preview.d.ts": "ae9d81e2b8514e13fd59b5b6bece9a64",
-      "src/routeTree.gen.ts": "d1734ae899cc5f2e7b2863fd9929d79c",
+      "src/routeTree.gen.ts": "4816904d2e84ad89841b48528f73423e",
       "src/router.tsx": "8f905e713b0eba7fa8148b7995a708c9",
       "src/routes/[__component].preview.$.tsx": "e63e4b151fa738d36cb24710d2dbea18",
       "src/routes/[__mockup].preview.$.tsx": "bc9ea23fc46521b323ef461c9e77ff48",
       "src/routes/__root.tsx": "f9b9a0636bbb2730c4c41c041afe3d83",
       "src/routes/colors.tsx": "932c4c5362ed19097f27da7889ee6d5b",
-      "src/routes/gallery.tsx": "4d60da147a04d730241e9e94cf883b11",
-      "src/routes/index.tsx": "2c8bdaf7264cfcd2fa977c1e7932eeb5",
+      "src/routes/gallery.tsx": "6422ff0b27998f1b8f23a6f0de6869cb",
+      "src/routes/index.tsx": "fae676891e110b0e8ce199bebf6f714d",
+      "src/routes/paper-evening.tsx": "03f9aabce1d9af0c135df26763b6434a",
+      "src/routes/reflection-astrology.tsx": "353dfbc0bf3a9328063cf51fbacd132a",
+      "src/routes/reflection-home.tsx": "48e8fe9118a72f52752fef147a8a6b92",
+      "src/routes/reflection-journal.tsx": "cde54e189eb4d31eb5f2f2b18cba7522",
+      "src/routes/reflection-tarot.tsx": "6c2f3419f6ce2fc20d788e62879836ca",
+      "src/routes/study-plates.tsx": "79b2799dc0a581109c503646bbe90175",
       "src/routes/typography.tsx": "76af4ad8a1e5acac247e4256ee5afa80",
-      "src/styles.css": "970e778d8aa98db08c9cd296bb3252cd",
-      "src/tokens/build.ts": "d57be5e428c3ff7120e2063f36f36329",
-      "src/tokens/tokens.css": "f61ec794941f45b204bb59a1e772f209",
-      "src/tokens/tokens.json": "c80efc34c2abd1c00b62d3c1042a134c",
-      "src/version.ts": "149b9402a326eac5948b33ff96a8e3c2",
+      "src/styles.css": "7feab6443c56efb87c43df3917979ef9",
+      "src/tokens/build.ts": "825eddf493d9d9eaffde7b78100c1d52",
+      "src/tokens/tokens.css": "9a54562ed071ca1751202a965539cd6f",
+      "src/tokens/tokens.json": "74e1b4996b89ba026b817b6638276620",
+      "src/version.ts": "77e77f20a2df082ce2a882884db5cd1a",
       "tests/a11y.ts": "72133a29bb19c1d4fcd4781be00c6af1",
       "tests/agent-action-timezone.test.tsx": "ef18677245fd76664a77255a78848b64",
       "tests/agent-action.test.tsx": "75dad2e1c19d6c4fceb438c9e2b68534",
-      "tests/components.a11y.test.tsx": "27aa265fec44f66573cfa2820f64eb32",
+      "tests/components.a11y.test.tsx": "ad80141b960aa322c9a474ae11ae1e5f",
       "tests/fixtures/notification-export.html": "e79a2553bf8cb619c618082236a3cdc7",
       "tests/notification-export.test.tsx": "0c3f3e9519788e136de620e6c1906c98",
       "tests/notification-preview.py": "8752f12c201da0cb48c657069961b89b",
       "tests/overlays.test.tsx": "c3afc280583ec91d73447782b396fcfe",
       "tests/polish.test.tsx": "3603de1a902992d2768eea7881f28d26",
+      "tests/reflection-patterns.test.tsx": "6de5b526dcfd8331c4a5e90bb3851b90",
       "tests/setup.ts": "a425dad8a3c715e8e5ae33b437b3a484",
       "tests/tokens.test.ts": "d7d0187eda19a247d11deb22ace2c296",
       "tests/transactions.test.tsx": "ad9a7c5e9fc8252789f3be5b62d1ed1f",
@@ -356,9 +412,745 @@
         "raw": "0.75rem",
         "source": "src/styles.css"
       }
+    ],
+    "shadow": [
+      {
+        "name": "--shadow-reflection",
+        "raw": "0 10px 30px -12px rgb(16 63 70 / 0.25)",
+        "source": "src/styles.css"
+      }
     ]
   },
   "components": [
+    {
+      "name": "BrandReturnMark",
+      "file": "src/components/ui/brand-return-mark",
+      "import_path": "",
+      "props": [
+        {
+          "name": "variant",
+          "type": "enum",
+          "values": [
+            "paper",
+            "evening"
+          ],
+          "default": "paper"
+        },
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "sm",
+            "default"
+          ],
+          "default": "default"
+        }
+      ],
+      "usage": "Original theme-specific Reflection mark. Accessibility: Use empty alt beside a visible wordmark; give standalone branding meaningful alt.",
+      "examples": [
+        {
+          "label": "BrandReturnMark composition",
+          "code": "import { BrandReturnMark } from \"@/design-system/solstice\";\n\n\u003cBrandReturnMark variant=\"evening\" alt=\"Reflection\" /\u003e"
+        }
+      ],
+      "antipatterns": [
+        "Use empty alt beside a visible wordmark; give standalone branding meaningful alt.",
+        "Do not replace semantic controls with clickable divs or invent application data."
+      ]
+    },
+    {
+      "name": "TextLink",
+      "file": "src/components/ui/text-link",
+      "import_path": "",
+      "props": [
+        {
+          "name": "label",
+          "type": "string"
+        },
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "sm",
+            "default"
+          ],
+          "default": "default"
+        }
+      ],
+      "usage": "Use for underlined inline navigation. Accessibility: Supply a real href and a meaningful link name.",
+      "examples": [
+        {
+          "label": "TextLink composition",
+          "code": "import { TextLink } from \"@/design-system/solstice\";\n\n\u003cTextLink href=\"/journal\"\u003eOpen journal\u003c/TextLink\u003e"
+        }
+      ],
+      "antipatterns": [
+        "Supply a real href and a meaningful link name.",
+        "Do not replace semantic controls with clickable divs or invent application data."
+      ]
+    },
+    {
+      "name": "FlowNavTab",
+      "file": "src/components/ui/flow-nav-tab",
+      "import_path": "",
+      "props": [
+        {
+          "name": "label",
+          "type": "string"
+        },
+        {
+          "name": "variant",
+          "type": "enum",
+          "values": [
+            "default",
+            "current"
+          ],
+          "default": "default"
+        },
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "sm",
+            "default"
+          ],
+          "default": "default"
+        }
+      ],
+      "usage": "Use current/default variants for primary navigation. Accessibility: Current variant announces aria-current=\"page\". Never use navigation for an action.",
+      "examples": [
+        {
+          "label": "FlowNavTab composition",
+          "code": "import { FlowNavTab } from \"@/design-system/solstice\";\n\n\u003cFlowNavTab href=\"/journal\" variant=\"current\"\u003eJournal\u003c/FlowNavTab\u003e"
+        }
+      ],
+      "antipatterns": [
+        "Current variant announces aria-current=\"page\". Never use navigation for an action.",
+        "Do not replace semantic controls with clickable divs or invent application data."
+      ]
+    },
+    {
+      "name": "FlowHeader",
+      "file": "src/components/ui/flow-header",
+      "import_path": "",
+      "props": [
+        {
+          "name": "variant",
+          "type": "enum",
+          "values": [
+            "global",
+            "focused"
+          ],
+          "default": "global"
+        },
+        {
+          "name": "brand",
+          "type": "any",
+          "default": "Reflection"
+        },
+        {
+          "name": "navigation",
+          "type": "any"
+        },
+        {
+          "name": "actions",
+          "type": "any"
+        }
+      ],
+      "usage": "Compose responsive global or focused headers with navigation and action slots. Accessibility: Keep each navigation region named; account actions belong to the application.",
+      "examples": [
+        {
+          "label": "FlowHeader composition",
+          "code": "import { FlowHeader, TextLink } from \"@/design-system/solstice\";\n\n\u003cFlowHeader brand=\"Reflection\" navigation={\u003cTextLink href=\"/journal\"\u003eJournal\u003c/TextLink\u003e} /\u003e"
+        }
+      ],
+      "antipatterns": [
+        "Keep each navigation region named; account actions belong to the application.",
+        "Do not replace semantic controls with clickable divs or invent application data."
+      ]
+    },
+    {
+      "name": "FlowMomentArt",
+      "file": "src/components/ui/flow-moment-art",
+      "import_path": "",
+      "props": [
+        {
+          "name": "moment",
+          "type": "enum",
+          "values": [
+            "Keeping",
+            "Returning",
+            "Reflecting"
+          ],
+          "default": "Reflecting"
+        },
+        {
+          "name": "variant",
+          "type": "enum",
+          "values": [
+            "paper",
+            "evening"
+          ],
+          "default": "paper"
+        },
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "sm",
+            "default",
+            "lg"
+          ],
+          "default": "default"
+        }
+      ],
+      "usage": "Display original Keeping, Returning, and Reflecting botanical moments. Accessibility: Use descriptive alt for meaningful imagery and empty alt for decoration.",
+      "examples": [
+        {
+          "label": "FlowMomentArt composition",
+          "code": "import { FlowMomentArt } from \"@/design-system/solstice\";\n\n\u003cFlowMomentArt moment=\"Keeping\" variant=\"evening\" size=\"lg\" alt=\"Keeping botanical study\" /\u003e"
+        }
+      ],
+      "antipatterns": [
+        "Use descriptive alt for meaningful imagery and empty alt for decoration.",
+        "Do not replace semantic controls with clickable divs or invent application data."
+      ]
+    },
+    {
+      "name": "IconArrowRight",
+      "file": "src/components/ui/icon-arrow-right",
+      "import_path": "",
+      "usage": "Use the original uploaded arrow within a named link or action. Accessibility: The icon is decorative by default; name its enclosing action.",
+      "examples": [
+        {
+          "label": "IconArrowRight composition",
+          "code": "import { IconArrowRight, TextLink } from \"@/design-system/solstice\";\n\n\u003cTextLink href=\"/reading\"\u003eOpen reading \u003cIconArrowRight /\u003e\u003c/TextLink\u003e"
+        }
+      ],
+      "antipatterns": [
+        "The icon is decorative by default; name its enclosing action.",
+        "Do not replace semantic controls with clickable divs or invent application data."
+      ]
+    },
+    {
+      "name": "AstrologyCompactInput",
+      "file": "src/components/ui/astrology-compact-input",
+      "import_path": "",
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "hint",
+          "type": "string"
+        }
+      ],
+      "usage": "Use a compact labeled single-line field for search or details. Accessibility: Label is connected automatically. Supply controlled value/onChange together; errors use aria-invalid.",
+      "examples": [
+        {
+          "label": "AstrologyCompactInput composition",
+          "code": "import { AstrologyCompactInput } from \"@/design-system/solstice\";\n\n\u003cAstrologyCompactInput label=\"Search journal\" name=\"search\" hint=\"Search your words\" /\u003e"
+        }
+      ],
+      "antipatterns": [
+        "Label is connected automatically. Supply controlled value/onChange together; errors use aria-invalid.",
+        "Do not replace semantic controls with clickable divs or invent application data."
+      ]
+    },
+    {
+      "name": "AstrologyResponsiveReflectionField",
+      "file": "src/components/ui/astrology-responsive-reflection-field",
+      "import_path": "",
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "hint",
+          "type": "string"
+        }
+      ],
+      "usage": "Use a labeled editable reflection textarea. Accessibility: Hint is connected via aria-describedby; existing descriptions are preserved.",
+      "examples": [
+        {
+          "label": "AstrologyResponsiveReflectionField composition",
+          "code": "import { AstrologyResponsiveReflectionField } from \"@/design-system/solstice\";\n\n\u003cAstrologyResponsiveReflectionField label=\"Your reflection\" hint=\"Start wherever you are.\" name=\"reflection\" /\u003e"
+        }
+      ],
+      "antipatterns": [
+        "Hint is connected via aria-describedby; existing descriptions are preserved.",
+        "Do not replace semantic controls with clickable divs or invent application data."
+      ]
+    },
+    {
+      "name": "TarotQuestionField",
+      "file": "src/components/ui/tarot-question-field",
+      "import_path": "",
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "hint",
+          "type": "string"
+        }
+      ],
+      "usage": "Use a labeled question editor in a reading sequence. Accessibility: Use a persistent label, not a placeholder; preserve keyboard input and textarea semantics.",
+      "examples": [
+        {
+          "label": "TarotQuestionField composition",
+          "code": "import { TarotQuestionField } from \"@/design-system/solstice\";\n\n\u003cTarotQuestionField label=\"Your question\" hint=\"One question is enough.\" name=\"question\" /\u003e"
+        }
+      ],
+      "antipatterns": [
+        "Use a persistent label, not a placeholder; preserve keyboard input and textarea semantics.",
+        "Do not replace semantic controls with clickable divs or invent application data."
+      ]
+    },
+    {
+      "name": "JournalFilterChip",
+      "file": "src/components/ui/journal-filter-chip",
+      "import_path": "",
+      "props": [
+        {
+          "name": "label",
+          "type": "string"
+        },
+        {
+          "name": "state",
+          "type": "enum",
+          "values": [
+            "Selected",
+            "Default"
+          ],
+          "default": "Default"
+        }
+      ],
+      "usage": "Use Selected/Default state for journal filter actions. Accessibility: Selection is exposed with aria-pressed. The consumer updates state after activation.",
+      "examples": [
+        {
+          "label": "JournalFilterChip composition",
+          "code": "import { JournalFilterChip } from \"@/design-system/solstice\";\n\n\u003cJournalFilterChip state=\"Selected\" onClick={selectAll}\u003eAll\u003c/JournalFilterChip\u003e"
+        }
+      ],
+      "antipatterns": [
+        "Selection is exposed with aria-pressed. The consumer updates state after activation.",
+        "Do not replace semantic controls with clickable divs or invent application data."
+      ]
+    },
+    {
+      "name": "HomeReturnRow",
+      "file": "src/components/ui/home-return-row",
+      "import_path": "",
+      "props": [
+        {
+          "name": "date",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "question",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "usage": "Navigate to a saved reflection using a full-width row. Accessibility: Supply stable date text and an actual destination. The question names the link.",
+      "examples": [
+        {
+          "label": "HomeReturnRow composition",
+          "code": "import { HomeReturnRow } from \"@/design-system/solstice\";\n\n\u003cHomeReturnRow date=\"Nov 3, 2026\" question=\"What deserves more space?\" href=\"/reading\" /\u003e"
+        }
+      ],
+      "antipatterns": [
+        "Supply stable date text and an actual destination. The question names the link.",
+        "Do not replace semantic controls with clickable divs or invent application data."
+      ]
+    },
+    {
+      "name": "JournalEntryRow",
+      "file": "src/components/ui/journal-entry-row",
+      "import_path": "",
+      "props": [
+        {
+          "name": "source",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "excerpt",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "metadata",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "actions",
+          "type": "any"
+        }
+      ],
+      "usage": "Present an unframed journal entry with application-provided actions. Accessibility: Use an appropriate page heading hierarchy and explicit action labels.",
+      "examples": [
+        {
+          "label": "JournalEntryRow composition",
+          "code": "import { JournalEntryRow } from \"@/design-system/solstice\";\n\n\u003cJournalEntryRow source=\"Notes\" title=\"A quiet moment\" excerpt=\"Room to pause.\" metadata=\"Nov 3\" /\u003e"
+        }
+      ],
+      "antipatterns": [
+        "Use an appropriate page heading hierarchy and explicit action labels.",
+        "Do not replace semantic controls with clickable divs or invent application data."
+      ]
+    },
+    {
+      "name": "ReflectionCard",
+      "file": "src/components/ui/reflection-card",
+      "import_path": "",
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "body",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "topic",
+          "type": "any"
+        },
+        {
+          "name": "actions",
+          "type": "any"
+        }
+      ],
+      "usage": "Use for an individual editorial reflection, with topic and action slots. Accessibility: Do not make the container clickable; provide a named link or Button in actions.",
+      "examples": [
+        {
+          "label": "ReflectionCard composition",
+          "code": "import { ReflectionCard, TextLink, TopicChip } from \"@/design-system/solstice\";\n\n\u003cReflectionCard title=\"Make room\" body=\"Another perspective.\" topic={\u003cTopicChip tone=\"Butter\"\u003eInquiry\u003c/TopicChip\u003e} actions={\u003cTextLink href=\"/reading\"\u003eExplore reflection\u003c/TextLink\u003e} /\u003e"
+        }
+      ],
+      "antipatterns": [
+        "Do not make the container clickable; provide a named link or Button in actions.",
+        "Do not replace semantic controls with clickable divs or invent application data."
+      ]
+    },
+    {
+      "name": "FlowSidePanel",
+      "file": "src/components/ui/flow-side-panel",
+      "import_path": "",
+      "props": [
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "body",
+          "type": "string"
+        },
+        {
+          "name": "quote",
+          "type": "any"
+        },
+        {
+          "name": "art",
+          "type": "any"
+        },
+        {
+          "name": "actions",
+          "type": "any"
+        }
+      ],
+      "usage": "Compose an unframed companion column with art, quote, detail, and action slots. Accessibility: An aside complements the main content; do not nest decorative cards inside cards.",
+      "examples": [
+        {
+          "label": "FlowSidePanel composition",
+          "code": "import { FlowSidePanel, FlowMomentArt } from \"@/design-system/solstice\";\n\n\u003cFlowSidePanel title=\"Another perspective\" body=\"Return when ready.\" art={\u003cFlowMomentArt /\u003e} /\u003e"
+        }
+      ],
+      "antipatterns": [
+        "An aside complements the main content; do not nest decorative cards inside cards.",
+        "Do not replace semantic controls with clickable divs or invent application data."
+      ]
+    },
+    {
+      "name": "TarotFlowProgress",
+      "file": "src/components/ui/tarot-flow-progress",
+      "import_path": "",
+      "props": [
+        {
+          "name": "step",
+          "type": "enum",
+          "values": [
+            "Question",
+            "Spread",
+            "Cards",
+            "Reading"
+          ],
+          "default": "Question"
+        }
+      ],
+      "usage": "Show the Question, Spread, Cards, Reading sequence. Accessibility: Current step is announced using aria-current=\"step\"; this is not clickable navigation.",
+      "examples": [
+        {
+          "label": "TarotFlowProgress composition",
+          "code": "import { TarotFlowProgress } from \"@/design-system/solstice\";\n\n\u003cTarotFlowProgress step=\"Cards\" /\u003e"
+        }
+      ],
+      "antipatterns": [
+        "Current step is announced using aria-current=\"step\"; this is not clickable navigation.",
+        "Do not replace semantic controls with clickable divs or invent application data."
+      ]
+    },
+    {
+      "name": "TarotBotanicalCardFace",
+      "file": "src/components/ui/tarot-botanical-card-face",
+      "import_path": "",
+      "props": [
+        {
+          "name": "position",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "number",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "orientation",
+          "type": "enum",
+          "values": [
+            "Upright",
+            "Reversed"
+          ],
+          "default": "Upright"
+        }
+      ],
+      "usage": "Display a botanical tarot card with supplied position and identity. Accessibility: Orientation is text, not rotation alone; artwork is decorative beside its identity.",
+      "examples": [
+        {
+          "label": "TarotBotanicalCardFace composition",
+          "code": "import { TarotBotanicalCardFace } from \"@/design-system/solstice\";\n\n\u003cTarotBotanicalCardFace position=\"Situation\" number=\"IX\" name=\"The Hermit\" orientation=\"Upright\" /\u003e"
+        }
+      ],
+      "antipatterns": [
+        "Orientation is text, not rotation alone; artwork is decorative beside its identity.",
+        "Do not replace semantic controls with clickable divs or invent application data."
+      ]
+    },
+    {
+      "name": "JournalTarotBasis",
+      "file": "src/components/ui/journal-tarot-basis",
+      "import_path": "",
+      "props": [
+        {
+          "name": "cards",
+          "type": "any",
+          "required": true
+        }
+      ],
+      "usage": "Use compact spread links with application-supplied card details. Accessibility: Each card requires a real href; do not embed hardcoded sample destinations.",
+      "examples": [
+        {
+          "label": "JournalTarotBasis composition",
+          "code": "import { JournalTarotBasis } from \"@/design-system/solstice\";\n\n\u003cJournalTarotBasis cards={[{ position: \"Situation\", number: \"IX\", name: \"The Hermit\", orientation: \"Upright\", href: \"/reading/hermit\" }]} /\u003e"
+        }
+      ],
+      "antipatterns": [
+        "Each card requires a real href; do not embed hardcoded sample destinations.",
+        "Do not replace semantic controls with clickable divs or invent application data."
+      ]
+    },
+    {
+      "name": "AstrologySidePanelContent",
+      "file": "src/components/ui/astrology-side-panel-content",
+      "import_path": "",
+      "props": [
+        {
+          "name": "variant",
+          "type": "enum",
+          "values": [
+            "chart",
+            "cycle"
+          ],
+          "default": "chart"
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "subtitle",
+          "type": "string"
+        },
+        {
+          "name": "art",
+          "type": "any"
+        },
+        {
+          "name": "detail",
+          "type": "any"
+        },
+        {
+          "name": "actions",
+          "type": "any"
+        }
+      ],
+      "usage": "Compose chart/cycle context from real application facts and slots. Accessibility: Never imply illustrative chart or cycle data is a real calculation; label sample data.",
+      "examples": [
+        {
+          "label": "AstrologySidePanelContent composition",
+          "code": "import { AstrologySidePanelContent } from \"@/design-system/solstice\";\n\n\u003cAstrologySidePanelContent variant=\"cycle\" title=\"Making space\" subtitle=\"November 2–12\" detail={\u003cp\u003eRoom to pause.\u003c/p\u003e} /\u003e"
+        }
+      ],
+      "antipatterns": [
+        "Never imply illustrative chart or cycle data is a real calculation; label sample data.",
+        "Do not replace semantic controls with clickable divs or invent application data."
+      ]
+    },
+    {
+      "name": "TopicChip",
+      "file": "src/components/ui/topic-chip",
+      "import_path": "",
+      "props": [
+        {
+          "name": "tone",
+          "type": "enum",
+          "values": [
+            "Mint",
+            "Sage",
+            "Butter"
+          ],
+          "default": "Mint"
+        },
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "sm",
+            "default"
+          ],
+          "default": "default"
+        },
+        {
+          "name": "label",
+          "type": "string"
+        }
+      ],
+      "usage": "Non-interactive topic metadata with Mint, Sage, and Butter tones; never a transaction status or action.",
+      "examples": [
+        {
+          "label": "Topic tones",
+          "code": "import { TopicChip } from \"@/design-system/solstice\";\n\u003cTopicChip tone=\"Butter\"\u003eA fresh perspective\u003c/TopicChip\u003e\n\u003cTopicChip tone=\"Sage\"\u003eIllustrative reading\u003c/TopicChip\u003e"
+        }
+      ],
+      "antipatterns": [
+        "Do not replace semantic tokens with raw styling.",
+        "Include a meaningful text label; color is supplementary.",
+        "Use Button instead for actions; TopicChip is a non-interactive span."
+      ]
+    },
+    {
+      "name": "VisualReferenceSetHeader",
+      "file": "src/components/ui/visual-reference-set-header",
+      "import_path": "",
+      "props": [
+        {
+          "name": "number",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "count",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "usage": "Use once as the editorial page heading for a numbered visual collection. Accessibility: Renders an h1; use once as the page heading, not as a nested section title. Keep count meaningful and preserve the heading text.",
+      "examples": [
+        {
+          "label": "Study collection",
+          "code": "import { VisualReferenceSetHeader } from \"@/design-system/solstice\";\n\n\u003cVisualReferenceSetHeader number=\"04\" title=\"Study plates\" count=\"6 images\" /\u003e"
+        }
+      ],
+      "antipatterns": [
+        "Do not replace semantic tokens with raw styling.",
+        "Renders an h1; use once as the page heading, not as a nested section title.",
+        "Keep count meaningful and preserve the heading text."
+      ]
+    },
+    {
+      "name": "VisualReferencePlateCaption",
+      "file": "src/components/ui/visual-reference-plate-caption",
+      "import_path": "",
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "note",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "meta",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "showStatus",
+          "type": "boolean",
+          "default": "true"
+        },
+        {
+          "name": "statusLabel",
+          "type": "string",
+          "default": "Ships in app"
+        }
+      ],
+      "usage": "Use inside a figure to show a study title, intended use, and original source metadata. Accessibility: Place figcaption inside its corresponding figure; give the image descriptive alt text. Title renders an h2; use beneath a page heading. showStatus controls visibility only; do not use this label as a transaction state.",
+      "examples": [
+        {
+          "label": "Study collection",
+          "code": "import { VisualReferencePlateCaption } from \"@/design-system/solstice\";\n\n\u003cfigure\u003e\n  \u003cimg src={studyImage} alt=\"Teal and coral botanical spiral\" /\u003e\n  \u003cVisualReferencePlateCaption title=\"Inquiry\" note=\"Recovery art\"\n    meta=\"study-inquiry.jpg · Concept archive, round 01\" showStatus /\u003e\n\u003c/figure\u003e"
+        }
+      ],
+      "antipatterns": [
+        "Do not replace semantic tokens with raw styling.",
+        "Place figcaption inside its corresponding figure; give the image descriptive alt text.",
+        "Title renders an h2; use beneath a page heading.",
+        "showStatus controls visibility only; do not use this label as a transaction state."
+      ]
+    },
     {
       "name": "Toaster",
       "file": "src/components/ui/sonner",
@@ -2908,9 +3700,139 @@
       "format": "woff2"
     },
     {
+      "file": "src/assets/icons/reflection-arrow.png",
+      "kind": "icon",
+      "format": "png"
+    },
+    {
+      "file": "src/assets/icons/reflection-check.png",
+      "kind": "icon",
+      "format": "png"
+    },
+    {
+      "file": "src/assets/icons/reflection-vector.svg",
+      "kind": "icon",
+      "format": "svg"
+    },
+    {
+      "file": "src/assets/illustrations/reflection-artwork-evening.png",
+      "kind": "illustration",
+      "format": "png"
+    },
+    {
+      "file": "src/assets/illustrations/reflection-botanical-card-study.png",
+      "kind": "illustration",
+      "format": "png"
+    },
+    {
       "file": "src/assets/illustrations/reflection-botanical.jpg",
       "kind": "illustration",
       "format": "jpg"
+    },
+    {
+      "file": "src/assets/illustrations/reflection-eveningjournaldesktop01home-artwork-evening.png",
+      "kind": "illustration",
+      "format": "png"
+    },
+    {
+      "file": "src/assets/illustrations/reflection-eveningjournaldesktop30deletereading-artwork-evening.png",
+      "kind": "illustration",
+      "format": "png"
+    },
+    {
+      "file": "src/assets/illustrations/reflection-eveningjournalmobile01home-artwork-evening.png",
+      "kind": "illustration",
+      "format": "png"
+    },
+    {
+      "file": "src/assets/illustrations/reflection-eveningtarotdesktop01question-artwork-evening.png",
+      "kind": "illustration",
+      "format": "png"
+    },
+    {
+      "file": "src/assets/illustrations/reflection-group-2.png",
+      "kind": "illustration",
+      "format": "png"
+    },
+    {
+      "file": "src/assets/illustrations/reflection-group.png",
+      "kind": "illustration",
+      "format": "png"
+    },
+    {
+      "file": "src/assets/illustrations/reflection-hero-bloom-cut-from-supplied-mock.png",
+      "kind": "illustration",
+      "format": "png"
+    },
+    {
+      "file": "src/assets/illustrations/reflection-keeping-evening.png",
+      "kind": "illustration",
+      "format": "png"
+    },
+    {
+      "file": "src/assets/illustrations/reflection-keeping-paper.png",
+      "kind": "illustration",
+      "format": "png"
+    },
+    {
+      "file": "src/assets/illustrations/reflection-reflecting-evening.png",
+      "kind": "illustration",
+      "format": "png"
+    },
+    {
+      "file": "src/assets/illustrations/reflection-reflecting-paper.png",
+      "kind": "illustration",
+      "format": "png"
+    },
+    {
+      "file": "src/assets/illustrations/reflection-returning-evening.png",
+      "kind": "illustration",
+      "format": "png"
+    },
+    {
+      "file": "src/assets/illustrations/reflection-returning-paper.png",
+      "kind": "illustration",
+      "format": "png"
+    },
+    {
+      "file": "src/assets/illustrations/study-inquiryjpg.png",
+      "kind": "illustration",
+      "format": "png"
+    },
+    {
+      "file": "src/assets/illustrations/study-perspectivejpg.png",
+      "kind": "illustration",
+      "format": "png"
+    },
+    {
+      "file": "src/assets/illustrations/study-possibilityjpg.png",
+      "kind": "illustration",
+      "format": "png"
+    },
+    {
+      "file": "src/assets/illustrations/study-returnjpg.png",
+      "kind": "illustration",
+      "format": "png"
+    },
+    {
+      "file": "src/assets/illustrations/study-stillnessjpg.png",
+      "kind": "illustration",
+      "format": "png"
+    },
+    {
+      "file": "src/assets/illustrations/study-tensionjpg.png",
+      "kind": "illustration",
+      "format": "png"
+    },
+    {
+      "file": "src/assets/logos/reflection-evening.png",
+      "kind": "logo",
+      "format": "png"
+    },
+    {
+      "file": "src/assets/logos/reflection-paper.png",
+      "kind": "logo",
+      "format": "png"
     }
   ]
 }

@@ -735,6 +735,97 @@ import { ApprovalCard } from "@/design-system/solstice";
 
 - Let approvals happen with a single click and no confirmation for rejections.
 
+### AstrologyCompactInput
+
+```ts
+import { AstrologyCompactInput } from "@/design-system/agent-transaction-99232c"
+```
+
+Use a compact labeled single-line field for search or details. Accessibility: Label is connected automatically. Supply controlled value/onChange together; errors use aria-invalid.
+
+**Props:**
+
+| Prop | Type | Default |
+|---|---|---|
+| `label` | string | `—` |
+| `hint` | string | `—` |
+
+**Examples:**
+
+_AstrologyCompactInput composition_
+```tsx
+import { AstrologyCompactInput } from "@/design-system/solstice";
+
+<AstrologyCompactInput label="Search journal" name="search" hint="Search your words" />
+```
+
+**Avoid:**
+
+- Label is connected automatically. Supply controlled value/onChange together; errors use aria-invalid.
+- Do not replace semantic controls with clickable divs or invent application data.
+
+### AstrologyResponsiveReflectionField
+
+```ts
+import { AstrologyResponsiveReflectionField } from "@/design-system/agent-transaction-99232c"
+```
+
+Use a labeled editable reflection textarea. Accessibility: Hint is connected via aria-describedby; existing descriptions are preserved.
+
+**Props:**
+
+| Prop | Type | Default |
+|---|---|---|
+| `label` | string | `—` |
+| `hint` | string | `—` |
+
+**Examples:**
+
+_AstrologyResponsiveReflectionField composition_
+```tsx
+import { AstrologyResponsiveReflectionField } from "@/design-system/solstice";
+
+<AstrologyResponsiveReflectionField label="Your reflection" hint="Start wherever you are." name="reflection" />
+```
+
+**Avoid:**
+
+- Hint is connected via aria-describedby; existing descriptions are preserved.
+- Do not replace semantic controls with clickable divs or invent application data.
+
+### AstrologySidePanelContent
+
+```ts
+import { AstrologySidePanelContent } from "@/design-system/agent-transaction-99232c"
+```
+
+Compose chart/cycle context from real application facts and slots. Accessibility: Never imply illustrative chart or cycle data is a real calculation; label sample data.
+
+**Props:**
+
+| Prop | Type | Default |
+|---|---|---|
+| `variant` | chart · cycle | `chart` |
+| `title` | string | `—` |
+| `subtitle` | string | `—` |
+| `art` | any | `—` |
+| `detail` | any | `—` |
+| `actions` | any | `—` |
+
+**Examples:**
+
+_AstrologySidePanelContent composition_
+```tsx
+import { AstrologySidePanelContent } from "@/design-system/solstice";
+
+<AstrologySidePanelContent variant="cycle" title="Making space" subtitle="November 2–12" detail={<p>Room to pause.</p>} />
+```
+
+**Avoid:**
+
+- Never imply illustrative chart or cycle data is a real calculation; label sample data.
+- Do not replace semantic controls with clickable divs or invent application data.
+
 ### Avatar
 
 ```ts
@@ -861,6 +952,35 @@ import { Badge } from "@/design-system/solstice";
 - Do not omit accessible names or keyboard support from this composition.
 - Always include status text; color alone must not convey meaning.
 - Badge renders a div, not an action; use Button for clickable content.
+
+### BrandReturnMark
+
+```ts
+import { BrandReturnMark } from "@/design-system/agent-transaction-99232c"
+```
+
+Original theme-specific Reflection mark. Accessibility: Use empty alt beside a visible wordmark; give standalone branding meaningful alt.
+
+**Props:**
+
+| Prop | Type | Default |
+|---|---|---|
+| `variant` | paper · evening | `paper` |
+| `size` | sm · default | `default` |
+
+**Examples:**
+
+_BrandReturnMark composition_
+```tsx
+import { BrandReturnMark } from "@/design-system/solstice";
+
+<BrandReturnMark variant="evening" alt="Reflection" />
+```
+
+**Avoid:**
+
+- Use empty alt beside a visible wordmark; give standalone branding meaningful alt.
+- Do not replace semantic controls with clickable divs or invent application data.
 
 ### Breadcrumb
 
@@ -2252,6 +2372,180 @@ import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuIte
 - Use a named trigger; preserve arrow-key navigation and Escape.
 - Shortcuts are display text only; implement and document actual shortcuts separately. Use onSelect for menu commands.
 
+### FlowHeader
+
+```ts
+import { FlowHeader } from "@/design-system/agent-transaction-99232c"
+```
+
+Compose responsive global or focused headers with navigation and action slots. Accessibility: Keep each navigation region named; account actions belong to the application.
+
+**Props:**
+
+| Prop | Type | Default |
+|---|---|---|
+| `variant` | global · focused | `global` |
+| `brand` | any | `Reflection` |
+| `navigation` | any | `—` |
+| `actions` | any | `—` |
+
+**Examples:**
+
+_FlowHeader composition_
+```tsx
+import { FlowHeader, TextLink } from "@/design-system/solstice";
+
+<FlowHeader brand="Reflection" navigation={<TextLink href="/journal">Journal</TextLink>} />
+```
+
+**Avoid:**
+
+- Keep each navigation region named; account actions belong to the application.
+- Do not replace semantic controls with clickable divs or invent application data.
+
+### FlowMomentArt
+
+```ts
+import { FlowMomentArt } from "@/design-system/agent-transaction-99232c"
+```
+
+Display original Keeping, Returning, and Reflecting botanical moments. Accessibility: Use descriptive alt for meaningful imagery and empty alt for decoration.
+
+**Props:**
+
+| Prop | Type | Default |
+|---|---|---|
+| `moment` | Keeping · Returning · Reflecting | `Reflecting` |
+| `variant` | paper · evening | `paper` |
+| `size` | sm · default · lg | `default` |
+
+**Examples:**
+
+_FlowMomentArt composition_
+```tsx
+import { FlowMomentArt } from "@/design-system/solstice";
+
+<FlowMomentArt moment="Keeping" variant="evening" size="lg" alt="Keeping botanical study" />
+```
+
+**Avoid:**
+
+- Use descriptive alt for meaningful imagery and empty alt for decoration.
+- Do not replace semantic controls with clickable divs or invent application data.
+
+### FlowNavTab
+
+```ts
+import { FlowNavTab } from "@/design-system/agent-transaction-99232c"
+```
+
+Use current/default variants for primary navigation. Accessibility: Current variant announces aria-current="page". Never use navigation for an action.
+
+**Props:**
+
+| Prop | Type | Default |
+|---|---|---|
+| `label` | string | `—` |
+| `variant` | default · current | `default` |
+| `size` | sm · default | `default` |
+
+**Examples:**
+
+_FlowNavTab composition_
+```tsx
+import { FlowNavTab } from "@/design-system/solstice";
+
+<FlowNavTab href="/journal" variant="current">Journal</FlowNavTab>
+```
+
+**Avoid:**
+
+- Current variant announces aria-current="page". Never use navigation for an action.
+- Do not replace semantic controls with clickable divs or invent application data.
+
+### FlowSidePanel
+
+```ts
+import { FlowSidePanel } from "@/design-system/agent-transaction-99232c"
+```
+
+Compose an unframed companion column with art, quote, detail, and action slots. Accessibility: An aside complements the main content; do not nest decorative cards inside cards.
+
+**Props:**
+
+| Prop | Type | Default |
+|---|---|---|
+| `title` | string | `—` |
+| `body` | string | `—` |
+| `quote` | any | `—` |
+| `art` | any | `—` |
+| `actions` | any | `—` |
+
+**Examples:**
+
+_FlowSidePanel composition_
+```tsx
+import { FlowSidePanel, FlowMomentArt } from "@/design-system/solstice";
+
+<FlowSidePanel title="Another perspective" body="Return when ready." art={<FlowMomentArt />} />
+```
+
+**Avoid:**
+
+- An aside complements the main content; do not nest decorative cards inside cards.
+- Do not replace semantic controls with clickable divs or invent application data.
+
+### HomeReturnRow
+
+```ts
+import { HomeReturnRow } from "@/design-system/agent-transaction-99232c"
+```
+
+Navigate to a saved reflection using a full-width row. Accessibility: Supply stable date text and an actual destination. The question names the link.
+
+**Props:**
+
+| Prop | Type | Default |
+|---|---|---|
+| `date` | string | `—` |
+| `question` | string | `—` |
+
+**Examples:**
+
+_HomeReturnRow composition_
+```tsx
+import { HomeReturnRow } from "@/design-system/solstice";
+
+<HomeReturnRow date="Nov 3, 2026" question="What deserves more space?" href="/reading" />
+```
+
+**Avoid:**
+
+- Supply stable date text and an actual destination. The question names the link.
+- Do not replace semantic controls with clickable divs or invent application data.
+
+### IconArrowRight
+
+```ts
+import { IconArrowRight } from "@/design-system/agent-transaction-99232c"
+```
+
+Use the original uploaded arrow within a named link or action. Accessibility: The icon is decorative by default; name its enclosing action.
+
+**Examples:**
+
+_IconArrowRight composition_
+```tsx
+import { IconArrowRight, TextLink } from "@/design-system/solstice";
+
+<TextLink href="/reading">Open reading <IconArrowRight /></TextLink>
+```
+
+**Avoid:**
+
+- The icon is decorative by default; name its enclosing action.
+- Do not replace semantic controls with clickable divs or invent application data.
+
 ### Input
 
 ```ts
@@ -2276,6 +2570,95 @@ import { Input, Label } from "@/design-system/solstice";
 - Do not omit accessible names or keyboard support from this composition.
 - Connect Label htmlFor to the input id.
 - Use aria-invalid and aria-describedby for errors; placeholder is not a label.
+
+### JournalEntryRow
+
+```ts
+import { JournalEntryRow } from "@/design-system/agent-transaction-99232c"
+```
+
+Present an unframed journal entry with application-provided actions. Accessibility: Use an appropriate page heading hierarchy and explicit action labels.
+
+**Props:**
+
+| Prop | Type | Default |
+|---|---|---|
+| `source` | string | `—` |
+| `title` | string | `—` |
+| `excerpt` | string | `—` |
+| `metadata` | string | `—` |
+| `actions` | any | `—` |
+
+**Examples:**
+
+_JournalEntryRow composition_
+```tsx
+import { JournalEntryRow } from "@/design-system/solstice";
+
+<JournalEntryRow source="Notes" title="A quiet moment" excerpt="Room to pause." metadata="Nov 3" />
+```
+
+**Avoid:**
+
+- Use an appropriate page heading hierarchy and explicit action labels.
+- Do not replace semantic controls with clickable divs or invent application data.
+
+### JournalFilterChip
+
+```ts
+import { JournalFilterChip } from "@/design-system/agent-transaction-99232c"
+```
+
+Use Selected/Default state for journal filter actions. Accessibility: Selection is exposed with aria-pressed. The consumer updates state after activation.
+
+**Props:**
+
+| Prop | Type | Default |
+|---|---|---|
+| `label` | string | `—` |
+| `state` | Selected · Default | `Default` |
+
+**Examples:**
+
+_JournalFilterChip composition_
+```tsx
+import { JournalFilterChip } from "@/design-system/solstice";
+
+<JournalFilterChip state="Selected" onClick={selectAll}>All</JournalFilterChip>
+```
+
+**Avoid:**
+
+- Selection is exposed with aria-pressed. The consumer updates state after activation.
+- Do not replace semantic controls with clickable divs or invent application data.
+
+### JournalTarotBasis
+
+```ts
+import { JournalTarotBasis } from "@/design-system/agent-transaction-99232c"
+```
+
+Use compact spread links with application-supplied card details. Accessibility: Each card requires a real href; do not embed hardcoded sample destinations.
+
+**Props:**
+
+| Prop | Type | Default |
+|---|---|---|
+| `cards` | any | `—` |
+
+**Examples:**
+
+_JournalTarotBasis composition_
+```tsx
+import { JournalTarotBasis } from "@/design-system/solstice";
+
+<JournalTarotBasis cards={[{ position: "Situation", number: "IX", name: "The Hermit", orientation: "Upright", href: "/reading/hermit" }]} />
+```
+
+**Avoid:**
+
+- Each card requires a real href; do not embed hardcoded sample destinations.
+- Do not replace semantic controls with clickable divs or invent application data.
 
 ### Label
 
@@ -2714,6 +3097,37 @@ import { RadioGroup, RadioGroupItem, Label } from "@/design-system/solstice";
 - Do not omit accessible names or keyboard support from this composition.
 - Name the group and label every item.
 - Arrow keys move among options; preserve Radix keyboard behavior.
+
+### ReflectionCard
+
+```ts
+import { ReflectionCard } from "@/design-system/agent-transaction-99232c"
+```
+
+Use for an individual editorial reflection, with topic and action slots. Accessibility: Do not make the container clickable; provide a named link or Button in actions.
+
+**Props:**
+
+| Prop | Type | Default |
+|---|---|---|
+| `title` | string | `—` |
+| `body` | string | `—` |
+| `topic` | any | `—` |
+| `actions` | any | `—` |
+
+**Examples:**
+
+_ReflectionCard composition_
+```tsx
+import { ReflectionCard, TextLink, TopicChip } from "@/design-system/solstice";
+
+<ReflectionCard title="Make room" body="Another perspective." topic={<TopicChip tone="Butter">Inquiry</TopicChip>} actions={<TextLink href="/reading">Explore reflection</TextLink>} />
+```
+
+**Avoid:**
+
+- Do not make the container clickable; provide a named link or Button in actions.
+- Do not replace semantic controls with clickable divs or invent application data.
 
 ### Select
 
@@ -3799,6 +4213,123 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/design-system/solsti
 - Name the tab list and match trigger/content values.
 - Preserve arrow-key navigation; use manual activation when switching panels is expensive.
 
+### TarotBotanicalCardFace
+
+```ts
+import { TarotBotanicalCardFace } from "@/design-system/agent-transaction-99232c"
+```
+
+Display a botanical tarot card with supplied position and identity. Accessibility: Orientation is text, not rotation alone; artwork is decorative beside its identity.
+
+**Props:**
+
+| Prop | Type | Default |
+|---|---|---|
+| `position` | string | `—` |
+| `number` | string | `—` |
+| `name` | string | `—` |
+| `orientation` | Upright · Reversed | `Upright` |
+
+**Examples:**
+
+_TarotBotanicalCardFace composition_
+```tsx
+import { TarotBotanicalCardFace } from "@/design-system/solstice";
+
+<TarotBotanicalCardFace position="Situation" number="IX" name="The Hermit" orientation="Upright" />
+```
+
+**Avoid:**
+
+- Orientation is text, not rotation alone; artwork is decorative beside its identity.
+- Do not replace semantic controls with clickable divs or invent application data.
+
+### TarotFlowProgress
+
+```ts
+import { TarotFlowProgress } from "@/design-system/agent-transaction-99232c"
+```
+
+Show the Question, Spread, Cards, Reading sequence. Accessibility: Current step is announced using aria-current="step"; this is not clickable navigation.
+
+**Props:**
+
+| Prop | Type | Default |
+|---|---|---|
+| `step` | Question · Spread · Cards · Reading | `Question` |
+
+**Examples:**
+
+_TarotFlowProgress composition_
+```tsx
+import { TarotFlowProgress } from "@/design-system/solstice";
+
+<TarotFlowProgress step="Cards" />
+```
+
+**Avoid:**
+
+- Current step is announced using aria-current="step"; this is not clickable navigation.
+- Do not replace semantic controls with clickable divs or invent application data.
+
+### TarotQuestionField
+
+```ts
+import { TarotQuestionField } from "@/design-system/agent-transaction-99232c"
+```
+
+Use a labeled question editor in a reading sequence. Accessibility: Use a persistent label, not a placeholder; preserve keyboard input and textarea semantics.
+
+**Props:**
+
+| Prop | Type | Default |
+|---|---|---|
+| `label` | string | `—` |
+| `hint` | string | `—` |
+
+**Examples:**
+
+_TarotQuestionField composition_
+```tsx
+import { TarotQuestionField } from "@/design-system/solstice";
+
+<TarotQuestionField label="Your question" hint="One question is enough." name="question" />
+```
+
+**Avoid:**
+
+- Use a persistent label, not a placeholder; preserve keyboard input and textarea semantics.
+- Do not replace semantic controls with clickable divs or invent application data.
+
+### TextLink
+
+```ts
+import { TextLink } from "@/design-system/agent-transaction-99232c"
+```
+
+Use for underlined inline navigation. Accessibility: Supply a real href and a meaningful link name.
+
+**Props:**
+
+| Prop | Type | Default |
+|---|---|---|
+| `label` | string | `—` |
+| `size` | sm · default | `default` |
+
+**Examples:**
+
+_TextLink composition_
+```tsx
+import { TextLink } from "@/design-system/solstice";
+
+<TextLink href="/journal">Open journal</TextLink>
+```
+
+**Avoid:**
+
+- Supply a real href and a meaningful link name.
+- Do not replace semantic controls with clickable divs or invent application data.
+
 ### Textarea
 
 ```ts
@@ -3970,6 +4501,106 @@ import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider, Button } from
 - Do not omit accessible names or keyboard support from this composition.
 - The trigger needs its own accessible name; tooltip text is not a replacement.
 - Do not put essential instructions or interactive controls inside tooltips; support focus as well as pointer hover.
+
+### TopicChip
+
+```ts
+import { TopicChip } from "@/design-system/agent-transaction-99232c"
+```
+
+Non-interactive topic metadata with Mint, Sage, and Butter tones; never a transaction status or action.
+
+**Props:**
+
+| Prop | Type | Default |
+|---|---|---|
+| `tone` | Mint · Sage · Butter | `Mint` |
+| `size` | sm · default | `default` |
+| `label` | string | `—` |
+
+**Examples:**
+
+_Topic tones_
+```tsx
+import { TopicChip } from "@/design-system/solstice";
+<TopicChip tone="Butter">A fresh perspective</TopicChip>
+<TopicChip tone="Sage">Illustrative reading</TopicChip>
+```
+
+**Avoid:**
+
+- Do not replace semantic tokens with raw styling.
+- Include a meaningful text label; color is supplementary.
+- Use Button instead for actions; TopicChip is a non-interactive span.
+
+### VisualReferencePlateCaption
+
+```ts
+import { VisualReferencePlateCaption } from "@/design-system/agent-transaction-99232c"
+```
+
+Use inside a figure to show a study title, intended use, and original source metadata. Accessibility: Place figcaption inside its corresponding figure; give the image descriptive alt text. Title renders an h2; use beneath a page heading. showStatus controls visibility only; do not use this label as a transaction state.
+
+**Props:**
+
+| Prop | Type | Default |
+|---|---|---|
+| `title` | string | `—` |
+| `note` | string | `—` |
+| `meta` | string | `—` |
+| `showStatus` | boolean | `true` |
+| `statusLabel` | string | `Ships in app` |
+
+**Examples:**
+
+_Study collection_
+```tsx
+import { VisualReferencePlateCaption } from "@/design-system/solstice";
+
+<figure>
+  <img src={studyImage} alt="Teal and coral botanical spiral" />
+  <VisualReferencePlateCaption title="Inquiry" note="Recovery art"
+    meta="study-inquiry.jpg · Concept archive, round 01" showStatus />
+</figure>
+```
+
+**Avoid:**
+
+- Do not replace semantic tokens with raw styling.
+- Place figcaption inside its corresponding figure; give the image descriptive alt text.
+- Title renders an h2; use beneath a page heading.
+- showStatus controls visibility only; do not use this label as a transaction state.
+
+### VisualReferenceSetHeader
+
+```ts
+import { VisualReferenceSetHeader } from "@/design-system/agent-transaction-99232c"
+```
+
+Use once as the editorial page heading for a numbered visual collection. Accessibility: Renders an h1; use once as the page heading, not as a nested section title. Keep count meaningful and preserve the heading text.
+
+**Props:**
+
+| Prop | Type | Default |
+|---|---|---|
+| `number` | string | `—` |
+| `title` | string | `—` |
+| `count` | string | `—` |
+
+**Examples:**
+
+_Study collection_
+```tsx
+import { VisualReferenceSetHeader } from "@/design-system/solstice";
+
+<VisualReferenceSetHeader number="04" title="Study plates" count="6 images" />
+```
+
+**Avoid:**
+
+- Do not replace semantic tokens with raw styling.
+- Renders an h1; use once as the page heading, not as a nested section title.
+- Keep count meaningful and preserve the heading text.
 
 
 

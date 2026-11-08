@@ -6,6 +6,7 @@
     "vitest.config.ts",
     "eslint.config.js"
   ],
+  "exclude": ["src/design-system/agent-transaction-99232c/tokens/build.ts"],
   "compilerOptions": {
     "target": "ES2022",
     "jsx": "react-jsx",

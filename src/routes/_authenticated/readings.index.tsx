@@ -1,4 +1,4 @@
-import { Button, Input, Textarea, Label, Checkbox, Switch, RadioGroup, RadioGroupItem, Alert, AlertTitle, AlertDescription, TarotFlowProgress, FlowSidePanel, JournalEntryRow, TextLink, TopicChip } from "@/design-system/agent-transaction-99232c";
+import { Button, JournalEntryRow } from "@/design-system/agent-transaction-99232c";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { formatDate, savedReadingsQuery } from "@/lib/queries";
@@ -31,11 +31,7 @@ function History() {
             const hasReflection = Array.isArray(r.reflections) ? r.reflections.length > 0 : !!r.reflections;
             return (
               <li key={r.id}>
-                <Link to="/readings/$id" params={{ id: r.id }} className="panel block p-5 transition hover:border-primary">
-                  <div className="text-xs text-muted-foreground">{formatDate(r.created_at)}{hasReflection ? " · Reflection added" : ""}</div>
-                  <div className="mt-1 font-display text-xl text-foreground">{r.question}</div>
-                  <div className="mt-2 text-sm text-muted-foreground">{r.cards.map((c) => cardName(c.cardId)).join(" · ")}</div>
-                </Link>
+                <JournalEntryRow source="Three-card reading" title={r.question} excerpt={r.cards.map((c) => cardName(c.cardId)).join(" · ")} metadata={`${formatDate(r.created_at)}${hasReflection ? " · Reflection added" : ""}`} actions={<Button asChild variant="link"><Link to="/readings/$id" params={{ id: r.id }}>Open reading</Link></Button>} />
               </li>
             );
           })}

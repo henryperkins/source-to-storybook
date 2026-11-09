@@ -23,8 +23,8 @@ function Landing() {
       <FlowHeader brand={<Link to="/">Reflection</Link>} actions={<TextLink href="/auth?mode=signin">Sign in</TextLink>} />
     </div>
     <section className="relative isolate overflow-hidden">
-      <img src={bloom} alt="" className="pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover" />
-      <div className="relative mx-auto flex max-w-5xl flex-col gap-6 px-5 py-24 md:py-32">
+      <img src={bloom} alt="" className="pointer-events-none absolute bottom-0 right-0 -z-10 h-40 w-40 object-contain md:h-full md:w-full md:pl-96" />
+      <div className="relative mx-auto flex max-w-5xl flex-col gap-6 px-5 pb-24 pt-12 md:py-24">
         <p className="text-xs font-medium text-muted-foreground">REFLECTION, NOT PREDICTION</p>
         <h1 className="max-w-xl font-display text-6xl md:text-7xl">Reflection</h1>
         <p className="max-w-md text-2xl">A little space to reflect.</p>

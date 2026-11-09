@@ -1,4 +1,4 @@
-import { Button, Input, Textarea, Label, Checkbox, Switch, RadioGroup, RadioGroupItem, Alert, AlertTitle, AlertDescription, TarotFlowProgress, FlowSidePanel, JournalEntryRow, TextLink, TopicChip } from "@/design-system/agent-transaction-99232c";
+import { Button, Label, Switch, AlertDialog, AlertDialogTrigger, AlertDialogContent, AlertDialogHeader, AlertDialogTitle, AlertDialogDescription, AlertDialogFooter, AlertDialogCancel, AlertDialogAction } from "@/design-system/agent-transaction-99232c";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useQueryClient, useSuspenseQuery } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
@@ -39,7 +39,6 @@ function Account() {
   }
 
   async function removeAccount() {
-    if (!confirm("Delete your account, all saved readings and reflections? This can't be undone.")) return;
     await del();
     await qc.cancelQueries();
     qc.clear();
@@ -50,15 +49,13 @@ function Account() {
   return (
     <section className="mx-auto flex max-w-2xl flex-col gap-6 pt-6">
       <h1 className="text-4xl md:text-5xl">Account</h1>
-      <p className="text-muted-foreground">Signed in as {user.email}</p>
+      <p className="break-words text-muted-foreground">Signed in as {user.email}</p>
 
       <div className="flex flex-col gap-3 border-t border-border py-6">
         <h2 className="text-xl">AI readings</h2>
         <p className="text-sm text-muted-foreground">{COPY.aiPermission}</p>
         <p className="text-sm text-muted-foreground">{COPY.providerRetention} Limits: {DAILY_LIMIT} readings a day, {MONTHLY_LIMIT} a month.</p>
-        <Label className="flex items-center gap-3 font-medium">
-          <input type="checkbox" checked={profile.ai_enabled} onChange={(e) => toggleAi(e.target.checked)} /> Allow AI readings
-        </Label>
+        <div className="flex items-center gap-3"><Switch id="ai-permission" checked={profile.ai_enabled} onCheckedChange={toggleAi} /><Label htmlFor="ai-permission">Allow AI readings</Label></div>
         {status && <p role="status" className="text-sm text-primary">{status}</p>}
       </div>
 
@@ -71,7 +68,7 @@ function Account() {
       <div className="flex flex-col gap-3 border-t border-border py-6">
         <h2 className="text-xl">Delete account</h2>
         <p className="text-sm text-muted-foreground">Permanently removes your account, readings and reflections.</p>
-        <Button variant="destructive" className="self-start" onClick={removeAccount}>Delete account</Button>
+        <AlertDialog><div className="self-start"><AlertDialogTrigger asChild><Button variant="destructive">Delete account</Button></AlertDialogTrigger></div><AlertDialogContent><AlertDialogHeader><AlertDialogTitle>Delete your account?</AlertDialogTitle><AlertDialogDescription>All saved readings and reflections will be permanently removed. This can't be undone.</AlertDialogDescription></AlertDialogHeader><AlertDialogFooter><AlertDialogCancel>Keep account</AlertDialogCancel><AlertDialogAction variant="destructive" onClick={removeAccount}>Delete account</AlertDialogAction></AlertDialogFooter></AlertDialogContent></AlertDialog>
       </div>
     </section>
   );

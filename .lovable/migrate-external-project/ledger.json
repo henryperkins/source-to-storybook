@@ -39,7 +39,7 @@
     "source": "src/worker/provider",
     "outcome": "replace",
     "status": "migrated",
-    "next_action": "Real gateway reading verified; signed-in save flow needs an account"
+    "next_action": "Real signed-in reading generation, saved result, reflection persistence and archive readback verified; verification reading removed"
   },
   {
     "capability": "quotas (3/day, 30/month)",

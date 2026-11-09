@@ -1,4 +1,4 @@
-import { Button, Input, Textarea, Label, Checkbox, Switch, RadioGroup, RadioGroupItem, Alert, AlertTitle, AlertDescription, TarotFlowProgress, FlowSidePanel, JournalEntryRow, TextLink, TopicChip } from "@/design-system/agent-transaction-99232c";
+import { Button, Textarea, Label, Checkbox, Alert, AlertTitle, AlertDescription, TarotFlowProgress } from "@/design-system/agent-transaction-99232c";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
@@ -53,35 +53,28 @@ function NewReading() {
         <span className="text-xs font-medium text-muted-foreground">Reflection, not prediction</span>
         <h1 className="mt-2 text-4xl md:text-5xl">What would you like to think about?</h1>
       </div>
-      <PositionTiles />
+      <div className="order-last sm:order-none"><PositionTiles /></div>
       {!profile.ai_enabled && (
-        <div className="flex flex-col gap-3 border-t border-border py-5" role="status">
-          <h2 className="text-lg">AI readings are off</h2>
-          <p className="text-sm text-muted-foreground">{COPY.aiPermission}</p>
-          <Button asChild className="self-start"><Link to="/account" >Turn on AI readings</Link></Button>
-        </div>
+        <Alert>
+          <AlertTitle>AI readings are off</AlertTitle>
+          <AlertDescription>{COPY.aiPermission}</AlertDescription>
+          <div className="mt-3"><Button asChild><Link to="/account">Turn on AI readings</Link></Button></div>
+        </Alert>
       )}
       <form onSubmit={submit} className="flex flex-col gap-4">
         <Label className="flex flex-col gap-2 text-sm font-medium">Your question
           <Textarea rows={5} maxLength={MAX_QUESTION} value={question} onChange={(e) => setQuestion(e.target.value)} placeholder="How can I approach the next few weeks at work with more care?" disabled={busy} />
         </Label>
-        <div className="flex items-center justify-between text-xs text-muted-foreground">
-          <Label className="flex items-center gap-2 text-sm text-foreground">
-            <input type="checkbox" checked={reversals} onChange={(e) => setReversals(e.target.checked)} disabled={busy} /> Include reversed cards
-          </Label>
+        <div className="flex flex-wrap items-center justify-between gap-3 text-xs text-muted-foreground">
+          <div className="flex items-center gap-2"><Checkbox id="reversals" checked={reversals} onCheckedChange={(checked) => setReversals(checked === true)} disabled={busy} /><Label htmlFor="reversals">Include reversed cards</Label></div>
           <span>{question.length}/{MAX_QUESTION}</span>
         </div>
         <p className="text-xs text-muted-foreground">{COPY.startProcessing} {COPY.providerRetention}</p>
-        <Button  disabled={busy || !profile.ai_enabled || !question.trim()}>{busy ? "Drawing…" : "Draw three cards"}</Button>
+        <Button loading={busy} disabled={!profile.ai_enabled || !question.trim()}>{busy ? "Drawing…" : "Draw three cards"}</Button>
         {busy && (
           <div role="status" aria-live="polite" className="flex flex-col gap-2">
-            <div className="flex flex-wrap gap-2">
-              {STAGES.map((s, i) => (
-                <span key={s} className={i < stage ? "pill pill-done" : i === stage ? "pill pill-progress" : "pill"}>
-                  {i < stage ? "✓" : i === stage ? "◌" : "○"} {s}
-                </span>
-              ))}
-            </div>
+            <TarotFlowProgress step={stage === 0 ? "Spread" : stage === 1 ? "Cards" : "Reading"} />
+            <p className="text-sm">{STAGES[stage]}</p>
             <p className="text-xs text-muted-foreground">This can take up to a minute.</p>
           </div>
         )}

@@ -62,7 +62,7 @@ function NewReading() {
         </Alert>
       )}
       <form onSubmit={submit} className="flex flex-col gap-4">
-        <Label className="flex flex-col gap-2 text-sm font-medium">Your question
+        <Label className="flex flex-col gap-2">Your question
           <Textarea rows={5} maxLength={MAX_QUESTION} value={question} onChange={(e) => setQuestion(e.target.value)} placeholder="How can I approach the next few weeks at work with more care?" disabled={busy} />
         </Label>
         <div className="flex flex-wrap items-center justify-between gap-3 text-xs text-muted-foreground">

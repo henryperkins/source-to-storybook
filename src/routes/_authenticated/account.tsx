@@ -48,11 +48,11 @@ function Account() {
 
   return (
     <section className="mx-auto flex max-w-2xl flex-col gap-6 pt-6">
-      <h1 className="text-4xl md:text-5xl">Account</h1>
+      <h1 className="font-display text-4xl md:text-5xl">Account</h1>
       <p className="break-words text-muted-foreground">Signed in as {user.email}</p>
 
       <div className="flex flex-col gap-3 border-t border-border py-6">
-        <h2 className="text-xl">AI readings</h2>
+        <h2 className="font-display text-2xl">AI readings</h2>
         <p className="text-sm text-muted-foreground">{COPY.aiPermission}</p>
         <p className="text-sm text-muted-foreground">{COPY.providerRetention} Limits: {DAILY_LIMIT} readings a day, {MONTHLY_LIMIT} a month.</p>
         <div className="flex items-center gap-3"><Switch id="ai-permission" checked={profile.ai_enabled} onCheckedChange={toggleAi} /><Label htmlFor="ai-permission">Allow AI readings</Label></div>
@@ -60,13 +60,13 @@ function Account() {
       </div>
 
       <div className="flex flex-col gap-3 border-t border-border py-6">
-        <h2 className="text-xl">Your data</h2>
+        <h2 className="font-display text-2xl">Your data</h2>
         <p className="text-sm text-muted-foreground">Download every saved reading and reflection as a file.</p>
         <Button variant="outline" className="self-start" onClick={exportData}>Export saved readings</Button>
       </div>
 
       <div className="flex flex-col gap-3 border-t border-border py-6">
-        <h2 className="text-xl">Delete account</h2>
+        <h2 className="font-display text-2xl">Delete account</h2>
         <p className="text-sm text-muted-foreground">Permanently removes your account, readings and reflections.</p>
         <AlertDialog><div className="self-start"><AlertDialogTrigger asChild><Button variant="destructive">Delete account</Button></AlertDialogTrigger></div><AlertDialogContent><AlertDialogHeader><AlertDialogTitle>Delete your account?</AlertDialogTitle><AlertDialogDescription>All saved readings and reflections will be permanently removed. This can't be undone.</AlertDialogDescription></AlertDialogHeader><AlertDialogFooter><AlertDialogCancel>Keep account</AlertDialogCancel><AlertDialogAction variant="destructive" onClick={removeAccount}>Delete account</AlertDialogAction></AlertDialogFooter></AlertDialogContent></AlertDialog>
       </div>

@@ -1,4 +1,4 @@
-import { Button, Textarea, Label, Checkbox, Alert, AlertTitle, AlertDescription, TarotFlowProgress } from "@/design-system/agent-transaction-99232c";
+import { Button, TarotQuestionField, Label, Checkbox, Alert, AlertTitle, AlertDescription, TarotFlowProgress } from "@/design-system/agent-transaction-99232c";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
@@ -51,7 +51,7 @@ function NewReading() {
     <section className="mx-auto flex max-w-3xl flex-col gap-6 pt-6">
       <div>
         <span className="text-xs font-medium text-muted-foreground">Reflection, not prediction</span>
-        <h1 className="mt-2 text-4xl md:text-5xl">What would you like to think about?</h1>
+        <h1 className="mt-2 font-display text-4xl md:text-5xl">What would you like to think about?</h1>
       </div>
       <div className="order-last sm:order-none"><PositionTiles /></div>
       {!profile.ai_enabled && (
@@ -62,9 +62,7 @@ function NewReading() {
         </Alert>
       )}
       <form onSubmit={submit} className="flex flex-col gap-4">
-        <Label className="flex flex-col gap-2">Your question
-          <Textarea rows={5} maxLength={MAX_QUESTION} value={question} onChange={(e) => setQuestion(e.target.value)} placeholder="How can I approach the next few weeks at work with more care?" disabled={busy} />
-        </Label>
+        <TarotQuestionField label="Your question" hint="Open questions work best — ask about how, not whether." rows={5} maxLength={MAX_QUESTION} value={question} onChange={(e) => setQuestion(e.target.value)} placeholder="How can I approach the next few weeks at work with more care?" disabled={busy} />
         <div className="flex flex-wrap items-center justify-between gap-3 text-xs text-muted-foreground">
           <div className="flex items-center gap-2"><Checkbox id="reversals" checked={reversals} onCheckedChange={(checked) => setReversals(checked === true)} disabled={busy} /><Label htmlFor="reversals">Include reversed cards</Label></div>
           <span>{question.length}/{MAX_QUESTION}</span>

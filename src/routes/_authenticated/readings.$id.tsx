@@ -1,4 +1,4 @@
-import { Button, Textarea, Label, RadioGroup, RadioGroupItem, Accordion, AccordionItem, AccordionTrigger, AccordionContent, AlertDialog, AlertDialogTrigger, AlertDialogContent, AlertDialogHeader, AlertDialogTitle, AlertDialogDescription, AlertDialogFooter, AlertDialogCancel, AlertDialogAction } from "@/design-system/agent-transaction-99232c";
+import { Button, TopicChip, Textarea, Label, RadioGroup, RadioGroupItem, Accordion, AccordionItem, AccordionTrigger, AccordionContent, AlertDialog, AlertDialogTrigger, AlertDialogContent, AlertDialogHeader, AlertDialogTitle, AlertDialogDescription, AlertDialogFooter, AlertDialogCancel, AlertDialogAction } from "@/design-system/agent-transaction-99232c";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useQueryClient, useSuspenseQuery } from "@tanstack/react-query";
 import { useState } from "react";
@@ -36,7 +36,7 @@ function ReadingPage() {
   if (!r || (!r.saved && new Date(r.expires_at) < new Date()))
     return (
       <div className="mt-6 py-8">
-        <h1 className="text-3xl">This reading isn't available</h1>
+        <h1 className="font-display text-3xl">This reading isn't available</h1>
         <p className="mt-2 text-muted-foreground">Unsaved readings expire after 24 hours.</p>
         <Button asChild className="mt-4"><Link to="/readings" >Saved readings</Link></Button>
       </div>
@@ -68,8 +68,8 @@ function ReadingPage() {
   return (
     <article className="flex flex-col gap-10 pt-6">
       <header className="relative flex flex-col gap-3">
-        <span className="text-xs font-medium text-muted-foreground">{formatDate(r.created_at)} · {r.saved ? "Saved" : "Not saved"}</span>
-        <h1 className="break-words text-4xl md:text-5xl">{r.question}</h1>
+        <div className="flex flex-wrap items-center gap-3 text-xs font-medium text-muted-foreground"><span>{formatDate(r.created_at)}</span><TopicChip tone={r.saved ? "Mint" : "Butter"} label={r.saved ? "Saved" : "Unsaved · 24h"} /></div>
+        <h1 className="break-words font-display text-4xl md:text-5xl">{r.question}</h1>
         <div className="mt-2 flex flex-wrap items-center gap-3">
           {r.saved ? (
             <Button variant="outline"  onClick={() => setSaved(false)}>Unsave</Button>
@@ -83,14 +83,14 @@ function ReadingPage() {
       </header>
 
       <section aria-labelledby="drawn">
-        <h2 id="drawn" className="mb-4 text-xl">Drawn cards</h2>
+        <h2 id="drawn" className="mb-4 font-display text-2xl">Drawn cards</h2>
         <div className="grid gap-4 sm:grid-cols-3 sm:gap-6">
           {r.cards.map((c) => <CardFace key={c.position} card={c} />)}
         </div>
       </section>
 
       <section aria-labelledby="interp" className="flex flex-col gap-6">
-        <h2 id="interp" className="text-xl">Interpretation</h2>
+        <h2 id="interp" className="font-display text-2xl">Interpretation</h2>
         {it.units.map((u) => {
           const card = r.cards.find((c) => c.position === u.position);
           if (!card) return null;
@@ -108,7 +108,7 @@ function ReadingPage() {
             </div>
           );
         })}
-        <div className="flex flex-col gap-3 border-t border-border py-6">
+        <div className="flex flex-col gap-3 rounded-xl bg-muted p-5">
           <div className="text-xs font-medium text-muted-foreground">Bringing it together</div>
           <p className="text-lg leading-relaxed">{it.synthesis}</p>
           <div className="mt-3 text-xs font-medium text-muted-foreground">An optional next step</div>
@@ -116,14 +116,14 @@ function ReadingPage() {
           {it.reflectionQuestion && (
             <>
               <div className="mt-3 text-xs font-medium text-muted-foreground">A question to sit with</div>
-              <p className="font-display text-lg italic">{it.reflectionQuestion}</p>
+              <p className="border-l-2 border-accent pl-3 font-display text-xl italic">{it.reflectionQuestion}</p>
             </>
           )}
         </div>
       </section>
 
       <section aria-labelledby="reflection" className="flex flex-col gap-4">
-        <h2 id="reflection" className="text-xl">Your reflection</h2>
+        <h2 id="reflection" className="font-display text-2xl">Your reflection</h2>
         {editing ? (
           <>
             <Textarea rows={7} value={body} maxLength={10000} onChange={(e) => setBody(e.target.value)} aria-label="Reflection" />
@@ -139,10 +139,10 @@ function ReadingPage() {
           </>
         ) : r.reflection ? (
           <>
-            <p className="whitespace-pre-wrap text-lg">{r.reflection.body || <em className="text-muted-foreground">No text</em>}</p>
+            <div className="flex flex-col gap-3 rounded-xl border border-border bg-card p-5"><p className="whitespace-pre-wrap text-lg">{r.reflection.body || <em className="text-muted-foreground">No text</em>}</p>
             <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
               <StanceChip stance={r.reflection.stance} /> Saved {formatDate(r.reflection.updated_at)}
-            </div>
+            </div></div>
             <Button variant="outline" className="self-start" onClick={() => setEditing(true)}>Edit reflection</Button>
           </>
         ) : (

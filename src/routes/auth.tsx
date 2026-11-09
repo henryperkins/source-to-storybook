@@ -83,7 +83,7 @@ function AuthPage() {
     <div className="mx-auto flex min-h-screen max-w-md flex-col justify-center gap-6 px-5 py-12">
       <Logo />
       <div className="flex flex-col gap-5">
-        <h1 className="text-3xl">{mode === "signup" ? "Create your account" : mode === "signin" ? "Welcome back" : "Reset password"}</h1>
+        <h1 className="font-display text-3xl">{mode === "signup" ? "Create your account" : mode === "signin" ? "Welcome back" : "Reset password"}</h1>
         {mode !== "reset" && (
           <>
             <Button type="button" variant="outline"  onClick={google}>Continue with Google</Button>

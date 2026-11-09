@@ -1,4 +1,4 @@
-import { Button, JournalEntryRow } from "@/design-system/agent-transaction-99232c";
+import { Button, FlowMomentArt, JournalEntryRow } from "@/design-system/agent-transaction-99232c";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { formatDate, savedReadingsQuery } from "@/lib/queries";
@@ -17,13 +17,16 @@ function History() {
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
           <span className="text-xs font-medium text-muted-foreground">Your archive</span>
-          <h1 className="mt-2 text-4xl md:text-5xl">Saved readings</h1>
+          <h1 className="mt-2 font-display text-4xl md:text-5xl">Saved readings</h1>
         </div>
         <Button asChild><Link to="/new" >New reading</Link></Button>
       </div>
       {data.length === 0 ? (
-        <div className="py-12 text-muted-foreground">
-          No saved readings yet. Start a reading and choose <strong>Save reading</strong> to keep it here.
+        <div className="flex flex-col items-center gap-4 py-12 text-center">
+          <FlowMomentArt moment="Reflecting" size="lg" />
+          <h2 className="font-display text-2xl">Nothing kept yet</h2>
+          <p className="max-w-sm text-muted-foreground">Start a reading and choose <strong>Save reading</strong> to keep it here.</p>
+          <Button asChild><Link to="/new">Draw your first spread</Link></Button>
         </div>
       ) : (
         <ul className="flex flex-col gap-3">

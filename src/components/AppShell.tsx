@@ -1,9 +1,9 @@
-import { Link, useNavigate, useRouterState } from "@tanstack/react-router";
+import { useNavigate, useRouterState } from "@tanstack/react-router";
 import { useQueryClient } from "@tanstack/react-query";
 import type { ReactNode } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Button, FlowHeader, FlowNavTab } from "@/design-system/agent-transaction-99232c";
-import { LeafFooter } from "@/components/Brand";
+import { LeafFooter, Logo } from "@/components/Brand";
 
 export function AppShell({ children }: { children: ReactNode }) {
   const navigate = useNavigate();
@@ -18,8 +18,8 @@ export function AppShell({ children }: { children: ReactNode }) {
   return (
     <div className="relative min-h-screen">
       <div className="mx-auto max-w-5xl px-5">
-        <FlowHeader brand={<Link to="/readings">Reflection</Link>} navigation={<>
-          <FlowNavTab href="/readings" variant={pathname === "/readings" ? "current" : "default"}>Saved readings</FlowNavTab>
+        <FlowHeader brand={<Logo to="/readings" />} navigation={<>
+          <FlowNavTab href="/readings" variant={pathname.startsWith("/readings") ? "current" : "default"}>Saved readings</FlowNavTab>
           <FlowNavTab href="/new" variant={pathname === "/new" ? "current" : "default"}>New reading</FlowNavTab>
           <FlowNavTab href="/account" variant={pathname === "/account" ? "current" : "default"}>Account</FlowNavTab>
         </>} actions={<Button variant="ghost" onClick={signOut}>Sign out</Button>} />

@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import bloom from "@/design-system/agent-transaction-99232c/assets/illustrations/reflection-hero-bloom-cut-from-supplied-mock.png";
 import { Button, FlowHeader, TextLink } from "@/design-system/agent-transaction-99232c";
-import { LeafFooter, PositionTiles } from "@/components/Brand";
+import { LeafFooter, Logo, PositionTiles } from "@/components/Brand";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -20,7 +20,7 @@ export const Route = createFileRoute("/")({
 function Landing() {
   return <div className="min-h-screen overflow-hidden">
     <div className="mx-auto max-w-5xl px-5">
-      <FlowHeader brand={<Link to="/">Reflection</Link>} actions={<TextLink href="/auth?mode=signin">Sign in</TextLink>} />
+      <FlowHeader brand={<Logo />} actions={<TextLink href="/auth?mode=signin">Sign in</TextLink>} />
     </div>
     <section className="relative isolate overflow-hidden">
       <img src={bloom} alt="" className="pointer-events-none absolute bottom-0 right-0 -z-10 h-40 w-40 object-contain md:h-full md:w-full md:pl-96" />

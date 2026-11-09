@@ -21,7 +21,7 @@ function Reset() {
   return (
     <div className="mx-auto flex min-h-screen max-w-md flex-col justify-center px-5">
       <form onSubmit={submit} className="flex flex-col gap-4">
-        <h1 className="text-3xl">Choose a new password</h1>
+        <h1 className="font-display text-3xl">Choose a new password</h1>
         <Input type="password" minLength={8} required autoComplete="new-password" value={password} onChange={(e) => setPassword(e.target.value)} aria-label="New password" />
         <Button >Save password</Button>
         {error && <p className="text-sm text-destructive">{error}</p>}

@@ -11,6 +11,7 @@
 
 ## Architecture rules
 - App presentation composes the attached Solstice library through its public barrel and imports its canonical stylesheet after Tailwind; managed library files stay unchanged so release updates remain safe.
+- Journal filtering and compact spread destinations are browser-safe pure helpers in `src/lib/journal.ts`, with tests beside them; archive and reading views share these mappings to keep stance filters and card links consistent.
 - Readings are created only by the `startReading` server function (service role insert after auth + quota checks); clients may only toggle `saved`, so interpretations can't be forged.
 - Card meanings live in `src/content/canon.json` and are loaded inside server handlers only, keeping them out of the browser bundle; each reading stores the source meanings it used.
 - Pure reading rules (admission, quotas, draw) live in `src/lib/reading-rules.ts` with tests beside it, so limits stay verifiable.

@@ -23,11 +23,11 @@ export const savedReadingsQuery = () =>
     queryFn: async () => {
       const { data, error } = await supabase
         .from("readings")
-        .select("id, question, cards, saved_at, created_at, reflections(id)")
+        .select("id, question, cards, saved_at, created_at, reflections(id, body, stance, updated_at)")
         .eq("saved", true)
         .order("created_at", { ascending: false });
       if (error) throw error;
-      return data as unknown as (Pick<ReadingRow, "id" | "question" | "cards" | "saved_at" | "created_at"> & { reflections: { id: string }[] | { id: string } | null })[];
+      return data as unknown as (Pick<ReadingRow, "id" | "question" | "cards" | "saved_at" | "created_at"> & { reflections: Pick<ReflectionRow, "id" | "body" | "stance" | "updated_at">[] | Pick<ReflectionRow, "id" | "body" | "stance" | "updated_at"> | null })[];
     },
   });
 

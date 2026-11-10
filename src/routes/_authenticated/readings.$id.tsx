@@ -1,4 +1,4 @@
-import { Button, TopicChip, Textarea, Label, RadioGroup, RadioGroupItem, Accordion, AccordionItem, AccordionTrigger, AccordionContent, AlertDialog, AlertDialogTrigger, AlertDialogContent, AlertDialogHeader, AlertDialogTitle, AlertDialogDescription, AlertDialogFooter, AlertDialogCancel, AlertDialogAction } from "@/design-system/agent-transaction-99232c";
+import { Button, FlowSidePanel, JournalTarotBasis, JournalEntryRow, TopicChip, Textarea, Label, RadioGroup, RadioGroupItem, Accordion, AccordionItem, AccordionTrigger, AccordionContent, AlertDialog, AlertDialogTrigger, AlertDialogContent, AlertDialogHeader, AlertDialogTitle, AlertDialogDescription, AlertDialogFooter, AlertDialogCancel, AlertDialogAction } from "@/design-system/agent-transaction-99232c";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useQueryClient, useSuspenseQuery } from "@tanstack/react-query";
 import { useState } from "react";
@@ -8,6 +8,7 @@ import { StanceChip } from "@/components/Brand";
 
 import { formatDate, readingQuery } from "@/lib/queries";
 import { cardName, COPY, positionLabel } from "@/lib/reading-rules";
+import { tarotBasisCards } from "@/lib/journal";
 
 export const Route = createFileRoute("/_authenticated/readings/$id")({
   head: () => ({ meta: [{ title: "Reading — Reflection" }, { name: "description", content: "Your three-card reading with sources and personal reflection." }, { property: "og:title", content: "Reading — Reflection" }, { property: "og:description", content: "Your three-card reading with sources and personal reflection." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }),
@@ -85,12 +86,14 @@ function ReadingPage() {
       <section aria-labelledby="drawn">
         <h2 id="drawn" className="mb-4 font-display text-2xl">Drawn cards</h2>
         <div className="grid gap-4 sm:grid-cols-3 sm:gap-6">
-          {r.cards.map((c) => <CardFace key={c.position} card={c} />)}
+          {r.cards.map((c) => <div key={c.position} id={`card-${c.position}`} className="scroll-mt-6"><CardFace card={c} /></div>)}
         </div>
       </section>
 
       <section aria-labelledby="interp" className="flex flex-col gap-6">
         <h2 id="interp" className="font-display text-2xl">Interpretation</h2>
+        <div className="grid gap-8 lg:grid-cols-3">
+        <div className="flex flex-col gap-6 lg:col-span-2">
         {it.units.map((u) => {
           const card = r.cards.find((c) => c.position === u.position);
           if (!card) return null;
@@ -99,12 +102,7 @@ function ReadingPage() {
             <div key={u.position} className="flex flex-col gap-3 border-t border-border py-6">
               <div className="text-xs font-medium text-muted-foreground">{positionLabel[u.position]} · {cardName(card.cardId)}, {card.orientation}</div>
               <p className="text-lg leading-relaxed text-foreground">{u.interpretation}</p>
-              {src && (
-                <Accordion type="single" collapsible><AccordionItem value={u.position}><AccordionTrigger>Source meaning</AccordionTrigger><AccordionContent>
-                  <blockquote className="mt-2 border-l-2 border-primary pl-3">{src.core}</blockquote>
-                  <p className="mt-2 text-xs">{src.attribution}</p>
-                </AccordionContent></AccordionItem></Accordion>
-              )}
+              {src && <p className="text-xs text-muted-foreground">{src.attribution}</p>}
             </div>
           );
         })}
@@ -120,10 +118,21 @@ function ReadingPage() {
             </>
           )}
         </div>
+        </div>
+        <FlowSidePanel title="Card notes">
+          <Accordion type="multiple">
+            {r.cards.map((card) => {
+              const source = it.sources[card.position];
+              return source ? <AccordionItem key={card.position} value={card.position}><AccordionTrigger>{positionLabel[card.position]} · {cardName(card.cardId)}</AccordionTrigger><AccordionContent><div className="flex flex-col gap-3"><blockquote>{source.core}</blockquote><p className="text-xs text-muted-foreground">{source.attribution}</p></div></AccordionContent></AccordionItem> : null;
+            })}
+          </Accordion>
+        </FlowSidePanel>
+        </div>
       </section>
 
       <section aria-labelledby="reflection" className="flex flex-col gap-4">
         <h2 id="reflection" className="font-display text-2xl">Your reflection</h2>
+        <JournalTarotBasis cards={tarotBasisCards(r.id, r.cards)} />
         {editing ? (
           <>
             <Textarea rows={7} value={body} maxLength={10000} onChange={(e) => setBody(e.target.value)} aria-label="Reflection" />
@@ -139,11 +148,9 @@ function ReadingPage() {
           </>
         ) : r.reflection ? (
           <>
-            <div className="flex flex-col gap-3 rounded-xl border border-border bg-card p-5"><p className="whitespace-pre-wrap text-lg">{r.reflection.body || <em className="text-muted-foreground">No text</em>}</p>
-            <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
-              <StanceChip stance={r.reflection.stance} /> Saved {formatDate(r.reflection.updated_at)}
-            </div></div>
-            <Button variant="outline" className="self-start" onClick={() => setEditing(true)}>Edit reflection</Button>
+            <JournalEntryRow source="Your journal" title="What this means to you" excerpt="" metadata={`Saved ${formatDate(r.reflection.updated_at)}`} actions={<Button variant="outline" onClick={() => setEditing(true)}>Edit reflection</Button>}>
+              <div className="flex flex-col gap-3"><p className="whitespace-pre-wrap break-words text-lg">{r.reflection.body || <em className="text-muted-foreground">No text</em>}</p><div><StanceChip stance={r.reflection.stance} /></div></div>
+            </JournalEntryRow>
           </>
         ) : (
           <Button variant="outline" className="self-start" onClick={() => setEditing(true)}>Add reflection</Button>

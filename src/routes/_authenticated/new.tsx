@@ -1,4 +1,4 @@
-import { Button, TarotQuestionField, Label, Checkbox, Alert, AlertTitle, AlertDescription, TarotFlowProgress } from "@/design-system/agent-transaction-99232c";
+import { Button, Textarea, Label, Checkbox, Alert, AlertTitle, AlertDescription, Accordion, AccordionItem, AccordionTrigger, AccordionContent, TarotFlowProgress } from "@/design-system/agent-transaction-99232c";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
@@ -6,7 +6,7 @@ import { useState, type FormEvent } from "react";
 import { profileQuery } from "@/lib/queries";
 import { admitQuestion, COPY, MAX_QUESTION } from "@/lib/reading-rules";
 import { startReading } from "@/lib/readings.functions";
-import { PositionTiles } from "@/components/Brand";
+import { ReadingPerspectives } from "@/components/Brand";
 
 export const Route = createFileRoute("/_authenticated/new")({
   head: () => ({ meta: [{ title: "New reading — Reflection" }, { name: "description", content: "Ask a question and draw Situation, Tension and Possibility." }, { property: "og:title", content: "New reading — Reflection" }, { property: "og:description", content: "Ask a question and draw Situation, Tension and Possibility." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }),
@@ -48,12 +48,12 @@ function NewReading() {
   }
 
   return (
-    <section className="mx-auto flex max-w-3xl flex-col gap-6 pt-6">
-      <div>
-        <span className="text-xs font-medium text-muted-foreground">Reflection, not prediction</span>
-        <h1 className="mt-2 font-display text-4xl md:text-5xl">What would you like to think about?</h1>
+    <section className="grid items-start gap-8 md:grid-cols-3">
+      <div className="flex min-w-0 flex-col gap-6 md:col-span-2">
+      <div className="flex flex-col gap-4">
+        <span>Reflection, not prediction</span>
+        <h1 className="font-display text-4xl font-semibold md:text-5xl">What would you like to think about?</h1>
       </div>
-      <div className="order-last sm:order-none"><PositionTiles /></div>
       {!profile.ai_enabled && (
         <Alert>
           <AlertTitle>AI readings are off</AlertTitle>
@@ -62,13 +62,18 @@ function NewReading() {
         </Alert>
       )}
       <form onSubmit={submit} className="flex flex-col gap-4">
-        <TarotQuestionField label="Your question" hint="Open questions work best — ask about how, not whether." rows={5} maxLength={MAX_QUESTION} value={question} onChange={(e) => setQuestion(e.target.value)} placeholder="How can I approach the next few weeks at work with more care?" disabled={busy} />
-        <div className="flex flex-wrap items-center justify-between gap-3 text-xs text-muted-foreground">
-          <div className="flex items-center gap-2"><Checkbox id="reversals" checked={reversals} onCheckedChange={(checked) => setReversals(checked === true)} disabled={busy} /><Label htmlFor="reversals">Include reversed cards</Label></div>
-          <span>{question.length}/{MAX_QUESTION}</span>
+        <div className="flex flex-col gap-2">
+          <div className="flex items-center justify-between gap-3"><Label htmlFor="reading-question" className="reference-label">Your question</Label><span className="tabular-nums">{question.length}/{MAX_QUESTION}</span></div>
+          <Textarea id="reading-question" className="reference-question" aria-describedby="question-hint" rows={5} maxLength={MAX_QUESTION} value={question} onChange={(e) => setQuestion(e.target.value)} placeholder="How can I approach the next few weeks at work with more care?" disabled={busy} />
+          <p id="question-hint">Open questions work best — ask about how, not whether.</p>
         </div>
-        <p className="text-xs text-muted-foreground">{COPY.startProcessing} {COPY.providerRetention}</p>
-        <Button loading={busy} disabled={!profile.ai_enabled || !question.trim()}>{busy ? "Drawing…" : "Draw three cards"}</Button>
+        <div className="flex items-center gap-3 rounded-xl border border-border px-4 py-3"><Checkbox id="reversals" checked={reversals} onCheckedChange={(checked) => setReversals(checked === true)} disabled={busy} /><Label htmlFor="reversals" className="reference-reversals">Include reversed cards</Label></div>
+        <div className="flex flex-col gap-2">
+          <p>Starting keeps your question for 24 hours. Save a reading to keep it until you delete it.</p>
+          <p>Your question, cards and source text go to Lovable AI. Uses workspace credits.</p>
+          <Accordion type="single" collapsible><AccordionItem value="processing" className="reference-processing"><AccordionTrigger>AI processing details</AccordionTrigger><AccordionContent>{COPY.aiPermission} {COPY.providerRetention}</AccordionContent></AccordionItem></Accordion>
+        </div>
+        <Button className="reference-draw w-full" size="lg" loading={busy} disabled={!profile.ai_enabled || !question.trim()}>{busy ? "Drawing…" : "Draw three cards"}</Button>
         {busy && (
           <div role="status" aria-live="polite" className="flex flex-col gap-2">
             <TarotFlowProgress step={stage === 0 ? "Spread" : stage === 1 ? "Cards" : "Reading"} />
@@ -78,6 +83,8 @@ function NewReading() {
         )}
         {error && <p role="alert" className="text-sm text-destructive">{error}</p>}
       </form>
+      </div>
+      <ReadingPerspectives />
     </section>
   );
 }

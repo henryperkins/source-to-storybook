@@ -13,3 +13,8 @@
 - [x] Add journal filters, compact spread links, and return-to-reflection rows to the archive.
 - [x] Compose reading notes with the official unframed companion panel.
 - [x] Verify filtering, card links, and reflection persistence on desktop and phone.
+
+# New reading reference design
+- [x] Match the desktop form and illustrated companion column.
+- [x] Match the phone navigation, menu, and stacked perspectives.
+- [x] Verify input, menu, and reading behavior on desktop and phone.

@@ -2,3 +2,50 @@
 @import "tw-animate-css";
 @import "./design-system/agent-transaction-99232c/styles.css";
 @source "../src";
+
+/* Deliberate screenshot-specific composition; all values use Solstice tokens. */
+
+  .new-reading-reference .reference-tab {
+    @apply rounded-none bg-transparent px-0 text-base text-foreground;
+  }
+  .new-reading-reference .reference-tab[aria-current="page"] {
+    @apply border-b-2 border-primary font-semibold text-primary;
+  }
+  .new-reading-reference .reference-menu {
+    @apply rounded-xl;
+  }
+  .new-reading-reference .reference-label {
+    @apply text-base font-semibold;
+  }
+  .new-reading-reference .reference-reversals {
+    @apply text-base font-normal;
+  }
+  .new-reading-reference .reference-question {
+    @apply min-h-32 rounded-xl bg-transparent px-4 py-3 text-base;
+  }
+  .new-reading-reference .reference-draw {
+    @apply h-12 rounded-xl text-xl;
+  }
+  .new-reading-reference .reference-processing {
+    @apply border-0;
+  }
+  .new-reading-reference .reference-processing > h3 > button {
+    @apply w-fit gap-3 py-1 font-sans text-base font-normal text-foreground underline underline-offset-4;
+  }
+  .new-reading-reference .reading-perspectives {
+    @apply border-t-0 border-l-0 p-0;
+  }
+  .new-reading-reference .reading-perspectives > h2 {
+    @apply mb-4 text-2xl font-semibold;
+  }
+  @variant md {
+    .new-reading-reference .reading-perspectives {
+      @apply border-t-0 border-l border-border pl-8;
+    }
+    .new-reading-reference .reference-navigation {
+      @apply self-stretch;
+    }
+    .new-reading-reference .reference-tab {
+      @apply h-full;
+    }
+  }

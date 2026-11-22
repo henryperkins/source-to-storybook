@@ -91,11 +91,11 @@ function AuthPage() {
           </>
         )}
         <form onSubmit={submit} className="flex flex-col gap-3">
-          <Label className="flex flex-col gap-1 text-sm">Email
+          <Label className="flex flex-col gap-1">Email
             <Input type="email" required autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} />
           </Label>
           {mode !== "reset" && (
-            <Label className="flex flex-col gap-1 text-sm">Password
+            <Label className="flex flex-col gap-1">Password
               <Input type="password" required minLength={8} autoComplete={mode === "signup" ? "new-password" : "current-password"} value={password} onChange={(e) => setPassword(e.target.value)} />
             </Label>
           )}

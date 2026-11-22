@@ -18,3 +18,7 @@
 - [x] Match the desktop form and illustrated companion column.
 - [x] Match the phone navigation, menu, and stacked perspectives.
 - [x] Verify input, menu, and reading behavior on desktop and phone.
+
+# Home page refinement
+- [x] Refine the first page using the existing Reflection visual language.
+- [x] Verify desktop and phone layout and home-page navigation.

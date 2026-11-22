@@ -22,3 +22,7 @@
 # Home page refinement
 - [x] Refine the first page using the existing Reflection visual language.
 - [x] Verify desktop and phone layout and home-page navigation.
+
+# Reading and archive refresh
+- [ ] Align reading detail and Saved readings with the refreshed visual style.
+- [ ] Preserve and verify filtering, card links, and reflection persistence on desktop and phone.

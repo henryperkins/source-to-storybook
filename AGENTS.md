@@ -11,6 +11,7 @@
 
 ## Architecture rules
 - Screenshot-specific New reading styling stays scoped to `.new-reading-reference` and composes managed library components so other pages and library updates remain unaffected.
+- Reading detail and archive share the refreshed shell through `.reflection-reading-pages`; only navigation styling is shared with New reading so form-specific overrides stay isolated.
 - App presentation composes the attached Solstice library through its public barrel and imports its canonical stylesheet after Tailwind; managed library files stay unchanged so release updates remain safe.
 - Journal filtering and compact spread destinations are browser-safe pure helpers in `src/lib/journal.ts`, with tests beside them; archive and reading views share these mappings to keep stance filters and card links consistent.
 - Readings are created only by the `startReading` server function (service role insert after auth + quota checks); clients may only toggle `saved`, so interpretations can't be forged.
